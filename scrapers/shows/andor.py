@@ -26,6 +26,13 @@ class Andor:
             self.file_handler = logging.FileHandler(add1, mode='w')
             self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
             self.andor_logger.addHandler(self.file_handler)
+        else:
+            # create add1
+            with open(add1, 'w') as f:
+                pass
+            self.file_handler = logging.FileHandler(add1, mode='w')
+            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
+            self.andor_logger.addHandler(self.file_handler)
 
     def search_andor_ez(self):
         self.andor_logger.info("Andor searching for {}".format(self.ANDOR_SEA))

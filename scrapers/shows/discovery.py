@@ -26,7 +26,12 @@ class Discovery:
             self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
             self.DISCOVERY_logger.addHandler(self.file_handler)
         else:
-            print("discovery log file not found")
+            # create add1
+            with open(add1, 'w') as f:
+                pass
+            self.file_handler = logging.FileHandler(add1, mode='w')
+            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
+            self.DISCOVERY_logger.addHandler(self.file_handler)
 
     def search_discovery_ez(self):
         self.DISCOVERY_logger.info("discovery searching for {}".format(self.DISCOVERY_SEA))

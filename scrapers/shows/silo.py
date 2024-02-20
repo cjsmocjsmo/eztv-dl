@@ -24,6 +24,13 @@ class Silo:
             self.file_handler = logging.FileHandler(addr1, mode='w')
             self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
             self.silo_logger.addHandler(self.file_handler)
+        else:
+            # create addr1
+            with open(addr1, 'w') as f:
+                pass
+            self.file_handler = logging.FileHandler(addr1, mode='w')
+            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
+            self.silo_logger.addHandler(self.file_handler)
 
     def search_silo_ez(self):
         try:
