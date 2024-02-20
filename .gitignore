@@ -1,2 +1,2 @@
-/scrapers/logs/*
+/scrapers/logs/*.log
 *.pyc
