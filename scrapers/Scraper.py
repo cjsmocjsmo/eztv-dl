@@ -60,6 +60,9 @@ class CheckForNewEpisodes:
 
     def main(self, args, cwd):
         start = time.time()
+        addr = "/".join((cwd,'logs'))
+        if not os.path.exists(addr):
+            os.makedirs(addr)
 
         acolyte = ACOLYTE.Acolyte(args, cwd).search_acolyte()
         time.sleep(10)
