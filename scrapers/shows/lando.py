@@ -8,7 +8,7 @@ class Lando:
     def __init__(self, args, cwd):
         self.args = args
         self.LANDO = re.compile(r"lando")
-        self.LANDO_SEA = "s02e01"
+        self.LANDO_SEA = "s01e01"
         self.LANDO_SEA_REG = re.compile(self.LANDO_SEA)
         self.LANDO_EZ_1 = "https://eztv.re/search/lando"
         self.LANDO_KA_1 = "https://kickasstorrents.to/usearch/lando"

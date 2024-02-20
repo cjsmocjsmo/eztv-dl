@@ -8,7 +8,7 @@ class MonarchLegacyOfMonsters:
     def __init__(self, args, cwd):
         self.args = args
         self.MONARCHLEGACYOFMONSTERS = re.compile(r"monarch legacy of monsters")
-        self.MONARCHLEGACYOFMONSTERS_SEA = "s01e07"
+        self.MONARCHLEGACYOFMONSTERS_SEA = "s02e01"
         self.MONARCHLEGACYOFMONSTERS_SEA_REG = re.compile(self.MONARCHLEGACYOFMONSTERS_SEA)
         self.MONARCHLEGACYOFMONSTERS_EZ_1 = "https://eztv.re/search/monarch-legacy-of-monsters"
         self.MONARCHLEGACYOFMONSTERS_KA_1 = "https://kickasstorrents.to/usearch/monarchlegacyofmonsters"

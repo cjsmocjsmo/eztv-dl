@@ -8,7 +8,7 @@ class ForAllMankind:
     def __init__(self, args, cwd):
         self.args = args
         self.FORALLMANKIND = re.compile(r"for all mankind")
-        self.FORALLMANKIND_SEA = "s04e07"
+        self.FORALLMANKIND_SEA = "s05e01"
         self.FORALLMANKIND_SEA_REG = re.compile(self.FORALLMANKIND_SEA)
         self.FORALLMANKIND_EZ_1 = "https://eztv.re/search/for-all-mankind"
         self.FORALLMANKIND_KA_1 = "https://kickasstorrents.to/usearch/forallmankind"

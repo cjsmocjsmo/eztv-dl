@@ -8,7 +8,7 @@ class Ahsoka:
     def __init__(self, args, cwd):
         self.args = args
         self.AHSOKA = re.compile(r"ahsoka")
-        self.AHSOKA_SEA = "s03e01"
+        self.AHSOKA_SEA = "s02e01"
         self.AHSOKA_SEA_REG = re.compile(self.AHSOKA_SEA)
         self.AHSOKA_EZ_1 = "https://eztv.re/search/ahsoka"
         self.AHSOKA_KA_1 = "https://kickasstorrents.to/usearch/ahsoka"

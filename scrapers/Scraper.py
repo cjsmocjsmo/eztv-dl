@@ -27,7 +27,6 @@ import shows.monarchlegacyofmonsters as MONARCHLEGACYOFMONSTER
 import shows.obiwankenobi as OBIWANKENOBI
 import shows.orville as ORVILLE
 import shows.prehistoricplanet as PREHISTORICPLANET
-import shows.rebelmoon as REBELMOON
 import shows.silo as SILO
 import shows.startrekprodigy as STARTREKPRODIGY
 import shows.starwarsvisions as STARWARSVISIONS
@@ -128,9 +127,6 @@ class CheckForNewEpisodes:
         prehistoricplanet = PREHISTORICPLANET.PrehistoricPlanet(args, cwd).search_prehistoricplanet()
         time.sleep(10)
 
-        rebelmoon = REBELMOON.RebelMoon(args, cwd).search_rebelmoon()
-        time.sleep(10)
-
         silo = SILO.Silo(args, cwd).search_silo()
         time.sleep(10)
 
@@ -147,19 +143,17 @@ class CheckForNewEpisodes:
         time.sleep(10)
        
         epi_total = [
-            andor, lowerdecks, loki, discovery, mandalorian, 
-            orville, forallmankind, badbatch, wheeloftime, 
-            foundation, starwarsvisions, startrekprodigy, 
-            bookofbobafett, continental, halo, strangenewworlds,
-            prehistoricplanet, obiwankenobi, houseofthedragon,
-            silo, ahsoka, acolyte, lando, monarch,
+            acolyte, ahsoka, andor, badbatch, bookofbobafett, continental, discovery, forallmankind, 
+            foundation, fubar, halo, houseofthedragon, lando, loki, lowerdecks, mandalorian, 
+            monarch, obiwankenobi, orville, prehistoricplanet, silo, startrekprodigy,  starwarsvisions,
+            strangenewworlds, wheeloftime, 
         ]
         end = time.time()
         ttime = (end - start) / 60
         ttime_str = str(ttime)
         total_time = ttime_str[:4]
 
-        # print("Total episodes found: {}".format(sum(epi_total)))
+        print("Total episodes found: {}".format(sum(epi_total)))
         print("Total time taken: {} min".format(total_time))
 
 

@@ -8,7 +8,7 @@ class Loki:
     def __init__(self, args, cwd):
         self.args = args
         self.LOKI = re.compile(r"loki")
-        self.LOKI_SEA = "s02e07"
+        self.LOKI_SEA = "s03e01"
         self.LOKI_SEA_REG = re.compile(self.LOKI_SEA)
         self.LOKI_EZ_1 = "https://eztv.re/search/loki"
         self.LOKI_KA_1 = "https://kickasstorrents.to/usearch/loki"
