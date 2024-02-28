@@ -1062,6 +1062,7 @@ if __name__ == "__main__":
     MLOM = ProcessMonarch()
     SWBB = ProcessBadBatch()
     HALO = ProcessHalo()
+    SHO = ProcessShogun()
 
     tvfiles = TVC.find_tvs_files()
     for tv in tvfiles:
@@ -1091,3 +1092,4 @@ if __name__ == "__main__":
         MLOM.process_file(tv)
         SWBB.process_file(tv)
         HALO.process_file(tv)
+        SHO.process_file(tv)
