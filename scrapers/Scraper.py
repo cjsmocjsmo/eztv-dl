@@ -32,6 +32,7 @@ import shows.startrekprodigy as STARTREKPRODIGY
 import shows.starwarsvisions as STARWARSVISIONS
 import shows.strangenewworlds as STRANGENEWWORLDS
 import shows.wheeloftime as WHEELOFTIME
+import shows.shogun as SHOGUN
 
 
 
@@ -144,12 +145,15 @@ class CheckForNewEpisodes:
 
         wheeloftime = WHEELOFTIME.WheelOfTime(args, cwd).search_wheeloftime()
         time.sleep(10)
+
+        shogun = SHOGUN.Shogun(args, cwd).search_shogun()
+        time.sleep(10)
        
         epi_total = [
             acolyte, ahsoka, andor, badbatch, bookofbobafett, continental, discovery, forallmankind, 
             foundation, fubar, halo, houseofthedragon, lando, loki, lowerdecks, mandalorian, 
             monarch, obiwankenobi, orville, prehistoricplanet, silo, startrekprodigy,  starwarsvisions,
-            strangenewworlds, wheeloftime, 
+            strangenewworlds, wheeloftime, shogun,
         ]
         end = time.time()
         ttime = (end - start) / 60

@@ -981,6 +981,38 @@ class ProcessBadBatch:
             except FileNotFoundError:
                 print(oldstring, newstring)
 
+class ProcessShogun:
+    def __init__(self):
+        self.LDre1 = re.compile("shogun.2024.")
+        # self.LDre2 = re.compile("loki.")
+
+        self.SNWcount = len("shogun.2024.")
+
+    def scan_file(self, filetup):
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        # s2 = re.search(self.LDre2, filetup[1])
+
+        if s1 != None:
+            return True
+        else:
+            return False
+
+    def process_file(self, filetup):
+        if self.scan_file(filetup) != True:
+            pass
+        else:
+            raw = filetup[1][self.SNWcount:]
+            season = raw[:3]
+            episode = raw[3:6]
+            newstring = filetup[0] + "/Shogun " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
+            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
+            print(newstring)
+            print(oldstring)
+            try:
+                os.renames(oldstring, newstring)
+            except FileNotFoundError:
+                print(oldstring, newstring)
+
 class TVSNameClean:
     def __init__(self):
         # self.tvfolder = "/media/charliepi/CHOCOLATE/tvshows"

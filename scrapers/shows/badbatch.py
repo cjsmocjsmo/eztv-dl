@@ -8,7 +8,7 @@ class BadBatch:
     def __init__(self, args, cwd):
         self.args = args
         self.BADBATCH = re.compile(r"bad batch")
-        self.BADBATCH_SEA = "s03e01"
+        self.BADBATCH_SEA = "s03e05"
         self.BADBATCH_SEA_REG = re.compile(self.BADBATCH_SEA)
         self.BADBATCH_EZ_1 = "https://eztv.re/search/bad-batch"
         self.BADBATCH_KA_1 = "https://kickasstorrents.to/usearch/badbatch"

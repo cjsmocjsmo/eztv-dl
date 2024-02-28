@@ -8,7 +8,7 @@ class Halo:
     def __init__(self, args, cwd):
         self.args = args
         self.HALO = re.compile(r"halo")
-        self.HALO_SEA = "s02e04"
+        self.HALO_SEA = "s02e05"
         self.HALO_SEA_REG = re.compile(self.HALO_SEA)
         self.HALO_EZ_1 = "https://eztv.re/search/halo"
         self.HALO_KA_1 = "https://kickasstorrents.to/usearch/halo"
