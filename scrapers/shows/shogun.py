@@ -8,7 +8,7 @@ class Shogun:
     def __init__(self, args, cwd):
         self.args = args
         self.shogun = re.compile(r"shogun")
-        self.shogun_SEA = "s01e06"
+        self.shogun_SEA = "s01e07"
         self.shogun_SEA_REG = re.compile(self.shogun_SEA)
         self.shogun_EZ_1 = "https://eztv.re/search/shogun-2024"
         self.shogun_KA_1 = "https://kickasstorrents.to/usearch/shogun"
