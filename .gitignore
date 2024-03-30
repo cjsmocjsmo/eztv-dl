@@ -1,2 +1,3 @@
 /scrapers/logs/*.log
+/scrapers/shows/__pycache__
 *.pyc
