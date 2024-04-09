@@ -66,88 +66,88 @@ class CheckForNewEpisodes:
             os.makedirs(addr)
 
         acolyte = ACOLYTE.Acolyte(args, cwd).search_acolyte()
-        time.sleep(10)
+        time.sleep(5)
 
         ahsoka = AHSOKA.Ahsoka(args, cwd).search_ahsoka()
-        time.sleep(10)
+        time.sleep(5)
 
         andor = ANDOR.Andor(args, cwd).search_andor()
-        time.sleep(10)
+        time.sleep(5)
 
         badbatch = BADBATCH.BadBatch(args, cwd).search_badbatch()
-        time.sleep(10)
+        time.sleep(5)
 
         bookofbobafett = BOOKOFBOBAFETT.BookOfBobaFett(args, cwd).search_bookofbobafett()
-        time.sleep(10)
+        time.sleep(5)
 
         continental = CONTINENTAL.Continental(args, cwd).search_continental()
-        time.sleep(10)
+        time.sleep(5)
 
         discovery = DISCOVERY.Discovery(args, cwd).search_discovery()
-        time.sleep(10)
+        time.sleep(5)
 
         fubar = FUBAR.Fubar(args, cwd).search_fubar()
-        time.sleep(10)
+        time.sleep(5)
 
         forallmankind = FORALLMANKIND.ForAllMankind(args, cwd).search_forallmankind()
-        time.sleep(10)
+        time.sleep(5)
 
         foundation = FOUNDATION.Foundation(args, cwd).search_foundation()
-        time.sleep(10)
+        time.sleep(5)
 
         # groot = self.search_groot(args)
-        # time.sleep(10)
+        # time.sleep(5)
 
         halo = HALO.Halo(args, cwd).search_halo()
-        time.sleep(10)
+        time.sleep(5)
 
         houseofthedragon = HOUSEOFTHEDRAGON.HouseOfTheDragon(args, cwd).search_houseofthedragon()
-        time.sleep(10)
+        time.sleep(5)
 
         lando = LANDO.Lando(args, cwd).search_lando()
-        time.sleep(10)
+        time.sleep(5)
 
         loki = LOKI.Loki(args, cwd).search_loki()
-        time.sleep(10)
+        time.sleep(5)
 
         # lordoftherings = self.search_lord_of_the_rings()
-        # time.sleep(10)
+        # time.sleep(5)
 
         lowerdecks = LOWERDECKS.LowerDecks(args, cwd).search_lowerdecks_ez()
-        time.sleep(10)
+        time.sleep(5)
 
         mandalorian = MANDILORIAN.Mandilorian(args, cwd).search_mandilorian()
-        time.sleep(10)
+        time.sleep(5)
 
         monarch = MONARCHLEGACYOFMONSTER.MonarchLegacyOfMonsters(args, cwd).search_monarchlegacyofmonsters()
-        time.sleep(10)
+        time.sleep(5)
 
         obiwankenobi = OBIWANKENOBI.ObiWanKenobi(args, cwd).search_obiwankenobi()
-        time.sleep(10)
+        time.sleep(5)
 
         orville = ORVILLE.Orville(args, cwd).search_orville()
-        time.sleep(10)
+        time.sleep(5)
 
         prehistoricplanet = PREHISTORICPLANET.PrehistoricPlanet(args, cwd).search_prehistoricplanet()
-        time.sleep(10)
+        time.sleep(5)
 
         silo = SILO.Silo(args, cwd).search_silo()
-        time.sleep(10)
+        time.sleep(5)
 
         startrekprodigy = STARTREKPRODIGY.StarTrekProdigy(args, cwd).search_startrekprodigy()
-        time.sleep(10)
+        time.sleep(5)
 
         starwarsvisions = STARWARSVISIONS.StarWarsVisions(args, cwd).search_starwarsvisions()
-        time.sleep(10)
+        time.sleep(5)
 
         strangenewworlds = STRANGENEWWORLDS.StrangeNewWorlds(args, cwd).search_strangenewworlds()
-        time.sleep(10)
+        time.sleep(5)
 
         wheeloftime = WHEELOFTIME.WheelOfTime(args, cwd).search_wheeloftime()
-        time.sleep(10)
+        time.sleep(5)
 
         shogun = SHOGUN.Shogun(args, cwd).search_shogun()
-        time.sleep(10)
+        time.sleep(5)
        
         epi_total = [
             acolyte, ahsoka, andor, badbatch, bookofbobafett, continental, discovery, forallmankind, 
