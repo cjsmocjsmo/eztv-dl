@@ -1013,6 +1013,41 @@ class ProcessShogun:
             except FileNotFoundError:
                 print(oldstring, newstring)
 
+
+class ProcessStarTrekDiscovery:
+    def __init__(self):
+        self.LDre1 = re.compile("star.trek.discovery.")
+        self.LDre2 = re.compile("star\ trek\ discovery\.")
+
+        self.SNWcount = len("star.trek.discovery.")
+
+    def scan_file(self, filetup):
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
+
+        if s1 != None:
+            return True
+        elif s2 != None:
+            return True
+        else:
+            return False
+
+    def process_file(self, filetup):
+        if self.scan_file(filetup) != True:
+            pass
+        else:
+            raw = filetup[1][self.SNWcount:]
+            season = raw[:3]
+            episode = raw[3:6]
+            newstring = filetup[0] + "/Star Trek Discovery " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
+            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
+            print(newstring)
+            print(oldstring)
+            try:
+                os.renames(oldstring, newstring)
+            except FileNotFoundError:
+                print(oldstring, newstring)
+
 class TVSNameClean:
     def __init__(self):
         # self.tvfolder = "/media/charliepi/CHOCOLATE/tvshows"
@@ -1063,6 +1098,7 @@ if __name__ == "__main__":
     SWBB = ProcessBadBatch()
     HALO = ProcessHalo()
     SHO = ProcessShogun()
+    STD = ProcessStarTrekDiscovery()
 
     tvfiles = TVC.find_tvs_files()
     for tv in tvfiles:
@@ -1093,3 +1129,4 @@ if __name__ == "__main__":
         SWBB.process_file(tv)
         HALO.process_file(tv)
         SHO.process_file(tv)
+        STD.process_file(tv)
