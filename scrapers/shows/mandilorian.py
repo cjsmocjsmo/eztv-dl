@@ -37,7 +37,6 @@ class Mandilorian:
         try:
             r1 = requests.get(self.MANDILORIAN_EZ_1)
             r1_resp = r1.status_code
-            print("mandilorian resp code: {}".format(r1_resp))
             self.MANDILORIAN_logger.info("mandilorian resp code: {}".format(r1_resp))
             count = 0
             if r1_resp == 200:
