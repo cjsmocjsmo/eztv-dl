@@ -140,8 +140,10 @@ def run():
     remove_crap()
     rm_empty_dirs()
     dirlist = get_dir_list()
+    print(dirlist)
     remove_rename_dir(dirlist)
     dirlist2 = get_dir_list()
+    print(dirlist2)
     globlist = glob_dir_list(dirlist2)
     split_at_1080p(globlist)
 
