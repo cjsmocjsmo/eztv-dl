@@ -74,7 +74,7 @@ def glob_for_jpg(adir):
     jpg_glob = glob.glob(jpgglobpath)
     if len(jpg_glob) < 1:
         print(jpgglobpath)
-        os._exit(1)
+        return (None, None, None)
     try:
         jpg_olddir, jpg_oldfilename = os.path.split(jpg_glob[0])
         return (jpg_olddir, jpg_oldfilename, jpg_glob[0])
@@ -105,8 +105,9 @@ def glob_dir_list(a_dir_list):
             "jpg_oldfilename": jpg_oldfilename,
             "mp4_oldfilename": mp4_oldfilename,
         }
+        print(meta)
         globlist.append(meta)
-        print(globlist)
+        
     return globlist
 
 def split_at_1080p(agloblist):
@@ -130,11 +131,10 @@ def split_at_1080p(agloblist):
         front =  "/".join((meta["savedir"], foo))
 
         newmp4path = front + foofn[-4:] + ").mp4"
-        newjpgpath = front + foofn[-4:] + ").jpg"
-        print(newmp4path)
-        print(newjpgpath)
         os.renames(meta["mp4_fullpath"], newmp4path)
-        os.renames(meta["jpg_fullpath"], newjpgpath)
+        if meta["jpg_fullpath"] != None:
+            newjpgpath = front + foofn[-4:] + ").jpg"
+            os.renames(meta["jpg_fullpath"], newjpgpath)
 
 def run():
     remove_crap()
