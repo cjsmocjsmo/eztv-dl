@@ -106,7 +106,7 @@ def glob_dir_list(a_dir_list):
             "mp4_oldfilename": mp4_oldfilename,
         }
         globlist.append(meta)
-        # print(globlist)
+        print(globlist)
     return globlist
 
 def split_at_1080p(agloblist):
