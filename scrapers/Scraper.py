@@ -33,6 +33,7 @@ import shows.starwarsvisions as STARWARSVISIONS
 import shows.strangenewworlds as STRANGENEWWORLDS
 import shows.wheeloftime as WHEELOFTIME
 import shows.shogun as SHOGUN
+import shows.fallout as FALLOUT
 
 
 
@@ -148,12 +149,15 @@ class CheckForNewEpisodes:
 
         shogun = SHOGUN.Shogun(args, cwd).search_shogun()
         time.sleep(5)
+
+        fallout = FALLOUT.Fallout(args, cwd).search_fallout()
+        time.sleep(5)
        
         epi_total = [
             acolyte, ahsoka, andor, badbatch, bookofbobafett, continental, discovery, forallmankind, 
             foundation, fubar, halo, houseofthedragon, lando, loki, lowerdecks, mandalorian, 
             monarch, obiwankenobi, orville, prehistoricplanet, silo, startrekprodigy,  starwarsvisions,
-            strangenewworlds, wheeloftime, shogun,
+            strangenewworlds, wheeloftime, shogun, fallout,
         ]
         end = time.time()
         ttime = (end - start) / 60
