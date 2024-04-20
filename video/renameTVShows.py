@@ -1048,6 +1048,70 @@ class ProcessStarTrekDiscovery:
             except FileNotFoundError:
                 print(oldstring, newstring)
 
+class Process3BodyProblem:
+    def __init__(self):
+        self.LDre1 = re.compile("3.body.problem.")
+        self.LDre2 = re.compile("3\ body\ problem\.")
+
+        self.SNWcount = len("3.body.problem.")
+
+    def scan_file(self, filetup):
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
+
+        if s1 != None:
+            return True
+        elif s2 != None:
+            return True
+        else:
+            return False
+
+    def process_file(self, filetup):
+        if self.scan_file(filetup) != True:
+            pass
+        else:
+            raw = filetup[1][self.SNWcount:]
+            season = raw[:3]
+            episode = raw[3:6]
+            newstring = filetup[0] + "/3 Body Problem " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
+            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
+            print(newstring)
+            print(oldstring)
+            try:
+                os.renames(oldstring, newstring)
+            except FileNotFoundError:
+                print(oldstring, newstring)
+
+class ProcessFallout:
+    def __init__(self):
+        self.LDre1 = re.compile("fallout.")
+
+        self.SNWcount = len("fallout.")
+
+    def scan_file(self, filetup):
+        s1 = re.search(self.LDre1, filetup[1].lower())
+
+        if s1 != None:
+            return True
+        else:
+            return False
+
+    def process_file(self, filetup):
+        if self.scan_file(filetup) != True:
+            pass
+        else:
+            raw = filetup[1][self.SNWcount:]
+            season = raw[:3]
+            episode = raw[3:6]
+            newstring = filetup[0] + "/Fallout " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
+            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
+            print(newstring)
+            print(oldstring)
+            try:
+                os.renames(oldstring, newstring)
+            except FileNotFoundError:
+                print(oldstring, newstring)
+
 class TVSNameClean:
     def __init__(self):
         # self.tvfolder = "/media/charliepi/CHOCOLATE/tvshows"
@@ -1099,6 +1163,8 @@ if __name__ == "__main__":
     HALO = ProcessHalo()
     SHO = ProcessShogun()
     STD = ProcessStarTrekDiscovery()
+    TBP = Process3BodyProblem()
+    FAL = ProcessFallout()
 
     tvfiles = TVC.find_tvs_files()
     for tv in tvfiles:
@@ -1130,3 +1196,5 @@ if __name__ == "__main__":
         HALO.process_file(tv)
         SHO.process_file(tv)
         STD.process_file(tv)
+        TBP.process_file(tv)
+        FAL.process_file(tv)
