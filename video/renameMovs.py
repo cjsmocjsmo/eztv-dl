@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
-
-import os, re, glob
+import os
+import re
+import glob
 
 
 MOVS_FOLDER = "/home/teresa/Downloads/movs"

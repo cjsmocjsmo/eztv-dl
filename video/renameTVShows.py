@@ -1,37 +1,20 @@
 #!/usr/bin/env python3
 
-#!/usr/bin/env python3
-
 import os, re
 
 class ProcessStrangeNewWorlds:
     def __init__(self):
-        self.SNWre1 = re.compile("Star.Trek.Strange.New.Worlds.")
-        self.SNWre2 = re.compile("star.trek.strange.new.worlds.")
-        self.SNWre3 = re.compile("STAR.TREK.STRANGE.NEW.WORLDS.")
-        self.SNWre4 = re.compile("Star Trek Strange New Worlds. ")
-        self.SNWre5 = re.compile("star trek strange new worlds. ")
-        self.SNWre6 = re.compile("STAR TREK STRANGE NEW WORLDS. ")
-        self.SNWcount = len("Star.Trek.Strange.New.Worlds.")
+        self.SNWre1 = re.compile("star.trek.strange.new.worlds.")
+        self.SNWre2 = re.compile("star trek strange new worlds ")
+
+        self.SNWcount = len("star.trek.strange.new.worlds.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.SNWre1, filetup[1])
-        s2 = re.search(self.SNWre2, filetup[1])
-        s3 = re.search(self.SNWre3, filetup[1])
-        s4 = re.search(self.SNWre4, filetup[1])
-        s5 = re.search(self.SNWre5, filetup[1])
-        s6 = re.search(self.SNWre6, filetup[1])
+        s1 = re.search(self.SNWre1, filetup[1].lower())
+        s2 = re.search(self.SNWre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
-            return True
-        elif s4 != None:
-            return True
-        elif s5 != None:
-            return True
-        elif s6 != None:
             return True
         else:
             return False
@@ -54,36 +37,17 @@ class ProcessStrangeNewWorlds:
 
 class ProcessObiWanKenobi:
     def __init__(self):
-        self.OWKre1 = re.compile("Obi-Wan.Kenobi.")
-        self.OWKre2 = re.compile("obi-wan.kenobi.")
-        self.OWKre3 = re.compile("OBI-WAN.KENOBI.")
-        self.OWKre4 = re.compile("Obi-Wan Kenobi ")
-        self.OWKre5 = re.compile("obi-wan kenobi ")
-        self.OWKre6 = re.compile("OBI-WAN KENOBI ")
-        self.OWKre7 = re.compile("Obi-wan Kenobi ")
-        self.OWKcount = len("Obi-Wan.Kenobi.")
+        self.OWKre1 = re.compile("obi-wan.kenobi.")
+        self.OWKre2 = re.compile("obi-wan kenobi ")
+
+        self.OWKcount = len("obi-wan.kenobi.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.OWKre1, filetup[1])
-        s2 = re.search(self.OWKre2, filetup[1])
-        s3 = re.search(self.OWKre3, filetup[1])
-        s4 = re.search(self.OWKre4, filetup[1])
-        s5 = re.search(self.OWKre5, filetup[1])
-        s6 = re.search(self.OWKre6, filetup[1])
-        s7 = re.search(self.OWKre7, filetup[1])
+        s1 = re.search(self.OWKre1, filetup[1].lower())
+        s2 = re.search(self.OWKre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
-            return True
-        elif s4 != None:
-            return True
-        elif s5 != None:
-            return True
-        elif s6 != None:
-            return True
-        elif s7 != None:
             return True
         else:
             return False
@@ -106,28 +70,17 @@ class ProcessObiWanKenobi:
 
 class ProcessOrville:
     def __init__(self):
-        self.ORVre1 = re.compile("The.Orville.")
-        self.ORVre2 = re.compile("the.orville")
-        self.ORVre3 = re.compile("THE.ORVILLE.")
-        self.ORVre4 = re.compile("The Orville ")
-        self.ORVre5 = re.compile("THE ORVILLE ")
-        self.ORVcount = len("The.Orville.")
+        self.ORVre1 = re.compile("the.orville.")
+        self.ORVre2 = re.compile("the orville ")
+
+        self.ORVcount = len("the.orville.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.ORVre1, filetup[1])
-        s2 = re.search(self.ORVre2, filetup[1])
-        s3 = re.search(self.ORVre3, filetup[1])
-        s4 = re.search(self.ORVre4, filetup[1])
-        s5 = re.search(self.ORVre5, filetup[1])
+        s1 = re.search(self.ORVre1, filetup[1].lower())
+        s2 = re.search(self.ORVre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
-            return True
-        elif s4 != None:
-            return True
-        elif s5 != None:
             return True
         else:
             return False
@@ -150,32 +103,17 @@ class ProcessOrville:
 
 class ProcessMsMarvel:
     def __init__(self):
-        self.MMre1 = re.compile("Ms.Marvel.")
         self.MMre2 = re.compile("ms.marvel.")
-        self.MMre3 = re.compile("MS.MARVEL.")
-        self.MMre4 = re.compile("Ms Marvel ")
         self.MMre5 = re.compile("ms marvel ")
-        self.MMre6 = re.compile("MS MARVEL ")
-        self.MMcount = len("Ms.Marvel.")
+
+        self.MMcount = len("ms.marvel.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.MMre1, filetup[1])
-        s2 = re.search(self.MMre2, filetup[1])
-        s3 = re.search(self.MMre3, filetup[1])
-        s4 = re.search(self.MMre4, filetup[1])
-        s5 = re.search(self.MMre5, filetup[1])
-        s6 = re.search(self.MMre6, filetup[1])
+        s1 = re.search(self.MMre1, filetup[1].lower())
+        s2 = re.search(self.MMre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
-            return True
-        elif s4 != None:
-            return True
-        elif s5 != None:
-            return True
-        elif s6 != None:
             return True
         else:
             return False
@@ -198,32 +136,17 @@ class ProcessMsMarvel:
 
 class ProcessForAllMankind:
     def __init__(self):
-        self.FAMKre1 = re.compile("For.All.Mankind.")
-        self.FAMKre2 = re.compile("for.all.mankind.")
-        self.FAMKre3 = re.compile("FOR.ALL.MANKIND.")
-        self.FAMKre4 = re.compile("For All Mankind ")
-        self.FAMKre5 = re.compile("for all mankind ")
-        self.FAMKre6 = re.compile("FOR ALL MANKIND ")
-        self.FAMKcount = len("For.All.Mankind.")
+        self.FAMKre1 = re.compile("for.all.mankind.")
+        self.FAMKre2 = re.compile("for all mankind ")
+
+        self.FAMKcount = len("for.all.mankind.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.FAMKre1, filetup[1])
-        s2 = re.search(self.FAMKre2, filetup[1])
-        s3 = re.search(self.FAMKre3, filetup[1])
-        s4 = re.search(self.FAMKre4, filetup[1])
-        s5 = re.search(self.FAMKre5, filetup[1])
-        s6 = re.search(self.FAMKre6, filetup[1])
+        s1 = re.search(self.FAMKre1, filetup[1].lower())
+        s2 = re.search(self.FAMKre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
-            return True
-        elif s4 != None:
-            return True
-        elif s5 != None:
-            return True
-        elif s6 != None:
             return True
         else:
             return False
@@ -246,13 +169,14 @@ class ProcessForAllMankind:
 
 class ProcessIAmGroot:
     def __init__(self):
-        self.IAGre1 = re.compile("I.Am.Groot.")
-        self.IAGre2 = re.compile("i.am.groot.")
-        self.IAGcount = len("I.Am.Groot.")
+        self.IAGre1 = re.compile("i.am.groot.")
+        self.IAGre2 = re.compile("i am groot ")
+
+        self.IAGcount = len("i.am.groot.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.IAGre1, filetup[1])
-        s2 = re.search(self.IAGre2, filetup[1])
+        s1 = re.search(self.IAGre1, filetup[1].lower())
+        s2 = re.search(self.IAGre2, filetup[1].lower())
 
         if s1 != None:
             return True
@@ -280,13 +204,14 @@ class ProcessIAmGroot:
 
 class ProcessLowerDecks:
     def __init__(self):
-        self.SNWre1 = re.compile("Star.Trek.Lower.Decks.")
-        self.SNWre2 = re.compile("star.trek.lower.decks.")
-        self.SNWcount = len("Star.Trek.Lower.Decks.")
+        self.SNWre1 = re.compile("star.trek.lower.decks.")
+        self.SNWre2 = re.compile("star trek lower decks ")
+
+        self.SNWcount = len("star.trek.lower.decks.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.SNWre1, filetup[1])
-        s2 = re.search(self.SNWre2, filetup[1])
+        s1 = re.search(self.SNWre1, filetup[1].lower())
+        s2 = re.search(self.SNWre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
@@ -312,24 +237,17 @@ class ProcessLowerDecks:
 
 class ProcessHouseOfTheDragon:
     def __init__(self):
-        self.LDre1 = re.compile("Dragon.")
-        self.LDre2 = re.compile("house.of.the.dragon.")
-        self.LDre3 = re.compile("HOUSE.OF.THE.DRAGON.")
-        self.LDre4 = re.compile("House.of.the.Dragon. ")
-        self.SNWcount = len("House.of.the.Dragon.")
+        self.LDre1 = re.compile("house.of.the.dragon.")
+        self.LDre2 = re.compile("house of the dragon ")
+
+        self.SNWcount = len("house.of.the.dragon.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
-        s3 = re.search(self.LDre3, filetup[1])
-        s4 = re.search(self.LDre4, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
-            return True
-        elif s4 != None:
             return True
         else:
             return False
@@ -354,21 +272,17 @@ class ProcessHouseOfTheDragon:
 
 class ProcessSheHulk:
     def __init__(self):
-        self.LDre1 = re.compile("She.Hulk.Attorney.At.Law.")
-        self.LDre2 = re.compile("she.hulk.attorney.at.law.")
-        self.LDre3 = re.compile("She-Hulk.Attorney.at.Law.")
+        self.LDre1 = re.compile("she.hulk.attorney.at.law.")
+        self.LDre2 = re.compile("she hulk attorney at law ")
 
-        self.SNWcount = len("She.Hulk.Attorney.At.Law.")
+        self.SNWcount = len("she.hulk.attorney.at.law.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
-        s3 = re.search(self.LDre3, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
             return True
         else:
             return False
@@ -393,22 +307,18 @@ class ProcessSheHulk:
 
 class ProcessHouseOfTheDragon:
     def __init__(self):
-        self.LDre1 = re.compile("House.Of.The.Dragon.")
-        self.LDre2 = re.compile("house.of.the.dragon.")
-        self.LDre3 = re.compile("House.of.the.Dragon.")
+        self.LDre1 = re.compile("house.of.the.dragon.")
+        self.LDre2 = re.compile("house of the dragon ")
 
-        self.SNWcount = len("House.Of.The.Dragon.")
+        self.SNWcount = len("house.of.the.dragon.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
-        s3 = re.search(self.LDre3, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
 
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
             return True
         else:
             return False
@@ -433,21 +343,17 @@ class ProcessHouseOfTheDragon:
 
 class ProcessTheLordOfTheRingsTheRingsOfPower:
     def __init__(self):
-        self.LDre1 = re.compile("The.Lord.Of.The.Rings.The.Rings.Of.Power.")
-        self.LDre2 = re.compile("the.lord.of.the.rings.the.rings.of.power.")
-        self.LDre3 = re.compile("The.Lord.of.the.Rings.The.Rings.of.Power.")
+        self.LDre1 = re.compile("the.lord.of.the.rings.the.rings.of.power.")
+        self.LDre2 = re.compile("the lord of the rings the rings of power ")
 
-        self.SNWcount = len("The.Lord.Of.The.Rings.The.Rings.Of.Power.")
+        self.SNWcount = len("the.lord.of.the.rings.the.rings.of.power.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
-        s3 = re.search(self.LDre3, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
-            return True
-        elif s3 != None:
             return True
         else:
             return False
@@ -472,14 +378,14 @@ class ProcessTheLordOfTheRingsTheRingsOfPower:
 
 class ProcessAndor:
     def __init__(self):
-        self.LDre1 = re.compile("Andor.")
-        self.LDre2 = re.compile("andor.")
+        self.LDre1 = re.compile("andor.")
+        self.LDre2 = re.compile("andor ")
 
-        self.SNWcount = len("Andor.")
+        self.SNWcount = len("andor.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
@@ -507,14 +413,14 @@ class ProcessAndor:
 
 class ProcessStarTrekProdigy:
     def __init__(self):
-        self.LDre1 = re.compile("Star.Trek.Prodigy.")
-        self.LDre2 = re.compile("star.trek.prodigy.")
+        self.LDre1 = re.compile("star.trek.prodigy.")
+        self.LDre2 = re.compile("star trek prodigy ")
 
-        self.SNWcount = len("Star.Trek.Prodigy.")
+        self.SNWcount = len("star.trek.prodigy.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
@@ -542,14 +448,14 @@ class ProcessStarTrekProdigy:
 
 class ProcessNightSky:
     def __init__(self):
-        self.LDre1 = re.compile("Night.Sky.")
-        self.LDre2 = re.compile("night.sky.")
+        self.LDre1 = re.compile("night.sky.")
+        self.LDre2 = re.compile("night sky ")
 
-        self.SNWcount = len("Night.Sky.")
+        self.SNWcount = len("night.sky.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
         if s1 != None:
             return True
         elif s2 != None:
@@ -577,14 +483,14 @@ class ProcessNightSky:
 
 class ProcessStarWarsVisions:
     def __init__(self):
-        self.LDre1 = re.compile("Star.Wars.Visions.")
-        self.LDre2 = re.compile("star.wars.visions.")
+        self.LDre1 = re.compile("star.wars.visions.")
+        self.LDre2 = re.compile("star wars visions ")
 
-        self.SNWcount = len("Star.Wars.Visions.")
+        self.SNWcount = len("star.wars.visions.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
 
         if s1 != None:
             return True
@@ -611,14 +517,14 @@ class ProcessStarWarsVisions:
 
 class ProcessSecretInvasion:
     def __init__(self):
-        self.LDre1 = re.compile("Secret.Invasion.")
-        self.LDre2 = re.compile("secret.invasion.")
+        self.LDre1 = re.compile("secret.invasion.")
+        self.LDre2 = re.compile("secret invasion ")
 
-        self.SNWcount = len("Secret.Invasion.")
+        self.SNWcount = len("secret.invasion.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
 
         if s1 != None:
             return True
@@ -645,14 +551,14 @@ class ProcessSecretInvasion:
 
 class ProcessSilo:
     def __init__(self):
-        self.LDre1 = re.compile("Silo.")
-        self.LDre2 = re.compile("silo.")
+        self.LDre1 = re.compile("silo.")
+        self.LDre2 = re.compile("silo ")
 
-        self.SNWcount = len("Silo.")
+        self.SNWcount = len("silo.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
 
         if s1 != None:
             return True
@@ -679,14 +585,14 @@ class ProcessSilo:
 
 class ProcessFoundation:
     def __init__(self):
-        self.LDre1 = re.compile("Foundation.")
-        self.LDre2 = re.compile("foundation.")
+        self.LDre1 = re.compile("foundation.")
+        self.LDre2 = re.compile("foundation ")
 
-        self.SNWcount = len("Foundation.")
+        self.SNWcount = len("foundation.")
 
     def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
 
         if s1 != None:
             return True
@@ -809,40 +715,6 @@ class ProcessWheelOfTime:
             season = raw[:3]
             episode = raw[3:6]
             newstring = filetup[0] + "/Wheel Of Time " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
-            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
-            print(newstring)
-            print(oldstring)
-            try:
-                os.renames(oldstring, newstring)
-            except FileNotFoundError:
-                print(oldstring, newstring)
-
-class ProcessOurFlagMeansDeath:
-    def __init__(self):
-        self.LDre1 = re.compile("Our.Flag.Means.Death.")
-        self.LDre2 = re.compile("our.flag.means.death.")
-
-        self.SNWcount = len("Our.Flag.Means.Death.")
-
-    def scan_file(self, filetup):
-        s1 = re.search(self.LDre1, filetup[1])
-        s2 = re.search(self.LDre2, filetup[1])
-
-        if s1 != None:
-            return True
-        elif s2 != None:
-            return True
-        else:
-            return False
-
-    def process_file(self, filetup):
-        if self.scan_file(filetup) != True:
-            pass
-        else:
-            raw = filetup[1][self.SNWcount:]
-            season = raw[:3]
-            episode = raw[3:6]
-            newstring = filetup[0] + "/Our Flag Means Death " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
             oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
             print(newstring)
             print(oldstring)
@@ -1156,7 +1028,6 @@ if __name__ == "__main__":
     TC = ProcessTheContenintal()
     PA = ProcessAhsoka()
     WOT = ProcessWheelOfTime()
-    OFMD = ProcessOurFlagMeansDeath()
     PL = ProcessLoki()
     MLOM = ProcessMonarch()
     SWBB = ProcessBadBatch()
@@ -1189,7 +1060,6 @@ if __name__ == "__main__":
         TC.process_file(tv)
         PA.process_file(tv)
         WOT.process_file(tv)
-        OFMD.process_file(tv)
         PL.process_file(tv)
         MLOM.process_file(tv)
         SWBB.process_file(tv)
