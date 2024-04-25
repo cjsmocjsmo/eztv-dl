@@ -9,7 +9,7 @@ class Discovery:
     def __init__(self, args, cwd):
         self.args = args
         self.DISCOVERY = re.compile(r"discovery")
-        self.DISCOVERY_SEA = "s05e05"
+        self.DISCOVERY_SEA = "s05e06"
         self.DISCOVERY_SEA_REG = re.compile(self.DISCOVERY_SEA)
         self.DISCOVERY_EZ_1 = "https://eztv.re/search/discovery"
         self.DISCOVERY_KA_1 = "https://kickasstorrents.to/usearch/discovery"
