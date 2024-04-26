@@ -103,8 +103,8 @@ class ProcessOrville:
 
 class ProcessMsMarvel:
     def __init__(self):
-        self.MMre2 = re.compile("ms.marvel.")
-        self.MMre5 = re.compile("ms marvel ")
+        self.MMre1 = re.compile("ms.marvel.")
+        self.MMre2 = re.compile("ms marvel ")
 
         self.MMcount = len("ms.marvel.")
 
