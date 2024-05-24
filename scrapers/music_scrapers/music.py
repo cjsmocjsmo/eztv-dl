@@ -9,7 +9,7 @@ from pprint import pprint
 
 class DownLoad:
     def __init__(self):
-        self.prefix = '/home/charliepi/Documents/tgx/'
+        self.prefix = '/home/teresa/Documents/tgx/'
         try:
             os.mkdir(self.prefix)
         except FileExistsError:
