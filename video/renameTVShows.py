@@ -988,7 +988,7 @@ class ProcessAcolyte:
     def __init__(self):
         self.LDre1 = re.compile("acolyte.")
 
-        self.SNWcount = len("acolyte.")
+        self.SNWcount = len("the.acolyte.")
 
     def scan_file(self, filetup):
         s1 = re.search(self.LDre1, filetup[1].lower())
@@ -1016,10 +1016,10 @@ class ProcessAcolyte:
 
 class ProcessTalesOfTheEmpire:
     def __init__(self):
-        self.LDre1 = re.compile("tales.of.the.empire.")
-        self.LDre2 = re.compile("tales of the empire ")
+        self.LDre1 = re.compile("star.wars.tales.of.the.empire.")
+        self.LDre2 = re.compile("star wars tales of the empire ")
 
-        self.SNWcount = len("acolyte.")
+        self.SNWcount = len("star.wars.tales.of.the.empire.")
 
     def scan_file(self, filetup):
         s1 = re.search(self.LDre1, filetup[1].lower())
