@@ -19,7 +19,7 @@ import shows.foundation as FOUNDATION
 import shows.fubar as FUBAR
 import shows.halo as HALO
 import shows.houseofthedragon as HOUSEOFTHEDRAGON
-import shows.lando as LANDO
+# import shows.lando as LANDO
 import shows.loki as LOKI
 import shows.lowerdecks as LOWERDECKS
 import shows.mandilorian as MANDILORIAN
@@ -34,6 +34,7 @@ import shows.strangenewworlds as STRANGENEWWORLDS
 import shows.wheeloftime as WHEELOFTIME
 import shows.shogun as SHOGUN
 import shows.fallout as FALLOUT
+import shows.thelastofus as THELASTOFUS
 
 
 
@@ -105,8 +106,8 @@ class CheckForNewEpisodes:
         houseofthedragon = HOUSEOFTHEDRAGON.HouseOfTheDragon(args, cwd).search_houseofthedragon()
         time.sleep(5)
 
-        lando = LANDO.Lando(args, cwd).search_lando()
-        time.sleep(5)
+        # lando = LANDO.Lando(args, cwd).search_lando()
+        # time.sleep(5)
 
         loki = LOKI.Loki(args, cwd).search_loki()
         time.sleep(5)
@@ -152,12 +153,15 @@ class CheckForNewEpisodes:
 
         fallout = FALLOUT.Fallout(args, cwd).search_fallout()
         time.sleep(5)
+
+        thelastofus = THELASTOFUS.TheLastOfUs(args, cwd).search_thelastofus()
+        time.sleep(5)
        
         epi_total = [
             acolyte, ahsoka, andor, badbatch, bookofbobafett, continental, discovery, forallmankind, 
-            foundation, fubar, halo, houseofthedragon, lando, loki, lowerdecks, mandalorian, 
+            foundation, fubar, halo, houseofthedragon, loki, lowerdecks, mandalorian, 
             monarch, obiwankenobi, orville, prehistoricplanet, silo, startrekprodigy,  starwarsvisions,
-            strangenewworlds, wheeloftime, shogun, fallout,
+            strangenewworlds, wheeloftime, shogun, fallout, thelastofus,
         ]
         end = time.time()
         ttime = (end - start) / 60

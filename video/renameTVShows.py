@@ -984,6 +984,70 @@ class ProcessFallout:
             except FileNotFoundError:
                 print(oldstring, newstring)
 
+class ProcessAcolyte:
+    def __init__(self):
+        self.LDre1 = re.compile("acolyte.")
+
+        self.SNWcount = len("acolyte.")
+
+    def scan_file(self, filetup):
+        s1 = re.search(self.LDre1, filetup[1].lower())
+
+        if s1 != None:
+            return True
+        else:
+            return False
+
+    def process_file(self, filetup):
+        if self.scan_file(filetup) != True:
+            pass
+        else:
+            raw = filetup[1][self.SNWcount:]
+            season = raw[:3]
+            episode = raw[3:6]
+            newstring = filetup[0] + "/The Acolyte " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
+            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
+            print(newstring)
+            print(oldstring)
+            try:
+                os.renames(oldstring, newstring)
+            except FileNotFoundError:
+                print(oldstring, newstring)
+
+class ProcessTalesOfTheEmpire:
+    def __init__(self):
+        self.LDre1 = re.compile("tales.of.the.empire.")
+        self.LDre2 = re.compile("tales of the empire ")
+
+        self.SNWcount = len("acolyte.")
+
+    def scan_file(self, filetup):
+        s1 = re.search(self.LDre1, filetup[1].lower())
+        s2 = re.search(self.LDre2, filetup[1].lower())
+
+        if s1 != None:
+            return True
+        elif s2 != None:
+            return True
+        else:
+            return False
+
+    def process_file(self, filetup):
+        if self.scan_file(filetup) != True:
+            pass
+        else:
+            raw = filetup[1][self.SNWcount:]
+            season = raw[:3]
+            episode = raw[3:6]
+            newstring = filetup[0] + "/Star Wars Tales Of The Empire " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
+            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
+            print(newstring)
+            print(oldstring)
+            try:
+                os.renames(oldstring, newstring)
+            except FileNotFoundError:
+                print(oldstring, newstring)
+
 class TVSNameClean:
     def __init__(self):
         # self.tvfolder = "/media/charliepi/CHOCOLATE/tvshows"
@@ -1036,6 +1100,8 @@ if __name__ == "__main__":
     STD = ProcessStarTrekDiscovery()
     TBP = Process3BodyProblem()
     FAL = ProcessFallout()
+    ACO = ProcessAcolyte()
+    TOTE = ProcessTalesOfTheEmpire()
 
     tvfiles = TVC.find_tvs_files()
     for tv in tvfiles:
@@ -1068,3 +1134,5 @@ if __name__ == "__main__":
         STD.process_file(tv)
         TBP.process_file(tv)
         FAL.process_file(tv)
+        ACO.process_file(tv)
+        TOTE.process_file(tv)
