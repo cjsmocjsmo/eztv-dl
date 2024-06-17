@@ -8,7 +8,7 @@ class HouseOfTheDragon:
     def __init__(self, args, cwd):
         self.args = args
         self.HOUSEOFTHEDRAGON = re.compile(r"house of the dragon")
-        self.HOUSEOFTHEDRAGON_SEA = "s02e01"
+        self.HOUSEOFTHEDRAGON_SEA = "s02e02"
         self.HOUSEOFTHEDRAGON_SEA_REG = re.compile(self.HOUSEOFTHEDRAGON_SEA)
         self.HOUSEOFTHEDRAGON_EZ_1 = "https://eztv.re/search/house-of-the-dragon"
         self.HOUSEOFTHEDRAGON_KA_1 = "https://kickasstorrents.to/usearch/houseofthedragon"
