@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class Shogun:
@@ -16,22 +14,6 @@ class Shogun:
         self.shogun_1337x_1 = "https://www.1377x.to/search/shogun"
         self.shogun_1337x_2 = "https://www.1377x.to/search/shogun/2"
 
-        self.shogun_logger = logging.getLogger(__name__)
-        self.shogun_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/shogun.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.shogun_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.shogun_logger.addHandler(self.file_handler)
-
     def search_shogun_ez(self):
         try:
             r1 = requests.get(self.shogun_EZ_1)
@@ -43,14 +25,11 @@ class Shogun:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ shogun {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.shogun_SEA, r1_resp, resp1080p, resp720p))
-                self.shogun_logger.info("\nEZ shogun {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.shogun_SEA, r1_resp, resp1080p, resp720p))
-            else:
+                
                 print("\nEZ shogun {} => status: {}".format(self.shogun_SEA, r1_resp))
-                self.shogun_logger.info("\nEZ shogun {} => status: {}".format(self.shogun_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("shogun unable to connect to EZTV")
-            self.shogun_logger.error("shogun unable to connect to EZTV")
             return 0
             
     def search_shogun_ka(self):
@@ -67,14 +46,11 @@ class Shogun:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA shogun {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.shogun_SEA, r3_resp, res1[0], res1[1]))
-                self.shogun_logger.info("KA shogun {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.shogun_SEA, r3_resp, res1[0], res1[1]))
             else:
                 print("KA shogun {} => status: {}".format(self.shogun_SEA, r3_resp))
-                self.shogun_logger.info("KA shogun {} => status: {}".format(self.shogun_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.shogun_logger.error(e)
             return 0
             
 

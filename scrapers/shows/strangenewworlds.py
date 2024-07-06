@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class StrangeNewWorlds:
@@ -16,22 +14,6 @@ class StrangeNewWorlds:
         self.STRANGENEWWORLDS_1337x_1 = "https://www.1377x.to/search/strangenewworlds"
         self.STRANGENEWWORLDS_1337x_2 = "https://www.1377x.to/search/strangenewworlds/2"
 
-        self.STRANGENEWWORLDS_logger = logging.getLogger(__name__)
-        self.STRANGENEWWORLDS_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/strangenewworlds.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.STRANGENEWWORLDS_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.STRANGENEWWORLDS_logger.addHandler(self.file_handler)
-
     def search_strangenewworlds_ez(self):
         try:
             r1 = requests.get(self.STRANGENEWWORLDS_EZ_1)
@@ -43,14 +25,12 @@ class StrangeNewWorlds:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ strangenewworlds {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.STRANGENEWWORLDS_SEA, r1_resp, resp1080p, resp720p))
-                self.STRANGENEWWORLDS_logger.info("\nEZ strangenewworlds {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.STRANGENEWWORLDS_SEA, r1_resp, resp1080p, resp720p))
+                
             else:
                 print("\nEZ strangenewworlds {} => status: {}".format(self.STRANGENEWWORLDS_SEA, r1_resp))
-                self.STRANGENEWWORLDS_logger.info("\nEZ strangenewworlds {} => status: {}".format(self.STRANGENEWWORLDS_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("strangenewworlds unable to connect to EZTV")
-            self.STRANGENEWWORLDS_logger.error("strangenewworlds unable to connect to EZTV")
             return 0
             
     def search_strangenewworlds_ka(self):
@@ -67,14 +47,12 @@ class StrangeNewWorlds:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA strangenewworlds {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.STRANGENEWWORLDS_SEA, r3_resp, res1[0], res1[1]))
-                self.STRANGENEWWORLDS_logger.info("KA strangenewworlds {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.STRANGENEWWORLDS_SEA, r3_resp, res1[0], res1[1]))
+                
             else:
                 print("KA strangenewworlds {} => status: {}".format(self.STRANGENEWWORLDS_SEA, r3_resp))
-                self.STRANGENEWWORLDS_logger.info("KA strangenewworlds {} => status: {}".format(self.STRANGENEWWORLDS_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.STRANGENEWWORLDS_logger.error(e)
             return 0
             
 

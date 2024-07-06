@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class PrehistoricPlanet:
@@ -16,22 +14,6 @@ class PrehistoricPlanet:
         self.PREHISTORICPLANET_1337x_1 = "https://www.1377x.to/search/prehistoricplanet"
         self.PREHISTORICPLANET_1337x_2 = "https://www.1377x.to/search/prehistoricplanet/2"
 
-        self.PREHISTORICPLANET_logger = logging.getLogger(__name__)
-        self.PREHISTORICPLANET_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/prehistoricplanet.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.PREHISTORICPLANET_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.PREHISTORICPLANET_logger.addHandler(self.file_handler)
-
     def search_prehistoricplanet_ez(self):
         try:
             r1 = requests.get(self.PREHISTORICPLANET_EZ_1)
@@ -43,14 +25,12 @@ class PrehistoricPlanet:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ prehistoricplanet {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.PREHISTORICPLANET_SEA, r1_resp, resp1080p, resp720p))
-                self.PREHISTORICPLANET_logger.info("\nEZ prehistoricplanet {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.PREHISTORICPLANET_SEA, r1_resp, resp1080p, resp720p))
+                
             else:
                 print("\nEZ prehistoricplanet {} => status: {}".format(self.PREHISTORICPLANET_SEA, r1_resp))
-                self.PREHISTORICPLANET_logger.info("\nEZ prehistoricplanet {} => status: {}".format(self.PREHISTORICPLANET_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("prehistoricplanet unable to connect to EZTV")
-            self.PREHISTORICPLANET_logger.error("prehistoricplanet unable to connect to EZTV")
             return 0
             
     def search_prehistoricplanet_ka(self):
@@ -67,14 +47,12 @@ class PrehistoricPlanet:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA prehistoricplanet {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.PREHISTORICPLANET_SEA, r3_resp, res1[0], res1[1]))
-                self.PREHISTORICPLANET_logger.info("KA prehistoricplanet {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.PREHISTORICPLANET_SEA, r3_resp, res1[0], res1[1]))
+                
             else:
                 print("KA prehistoricplanet {} => status: {}".format(self.PREHISTORICPLANET_SEA, r3_resp))
-                self.PREHISTORICPLANET_logger.info("KA prehistoricplanet {} => status: {}".format(self.PREHISTORICPLANET_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.PREHISTORICPLANET_logger.error(e)
             return 0
             
 

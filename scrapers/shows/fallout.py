@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class Fallout:
@@ -16,22 +14,6 @@ class Fallout:
         self.fallout_1337x_1 = "https://www.1377x.to/search/fallout"
         self.fallout_1337x_2 = "https://www.1377x.to/search/fallout/2"
 
-        self.fallout_logger = logging.getLogger(__name__)
-        self.fallout_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/fallout.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.fallout_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.fallout_logger.addHandler(self.file_handler)
-
     def search_fallout_ez(self):
         try:
             r1 = requests.get(self.fallout_EZ_1)
@@ -43,14 +25,12 @@ class Fallout:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ fallout {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.fallout_SEA, r1_resp, resp1080p, resp720p))
-                self.fallout_logger.info("\nEZ fallout {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.fallout_SEA, r1_resp, resp1080p, resp720p))
+                
             else:
                 print("\nEZ fallout {} => status: {}".format(self.fallout_SEA, r1_resp))
-                self.fallout_logger.info("\nEZ fallout {} => status: {}".format(self.fallout_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("fallout unable to connect to EZTV")
-            self.fallout_logger.error("fallout unable to connect to EZTV")
             return 0
             
     def search_fallout_ka(self):
@@ -67,14 +47,12 @@ class Fallout:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA fallout {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.fallout_SEA, r3_resp, res1[0], res1[1]))
-                self.fallout_logger.info("KA fallout {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.fallout_SEA, r3_resp, res1[0], res1[1]))
+                
             else:
                 print("KA fallout {} => status: {}".format(self.fallout_SEA, r3_resp))
-                self.fallout_logger.info("KA fallout {} => status: {}".format(self.fallout_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.fallout_logger.error(e)
             return 0
             
 

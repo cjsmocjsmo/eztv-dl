@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class Silo:
@@ -16,22 +14,6 @@ class Silo:
         self.silo_1337x_1 = "https://www.1377x.to/search/silo"
         self.silo_1337x_2 = "https://www.1377x.to/search/silo/2"
 
-        self.silo_logger = logging.getLogger(__name__)
-        self.silo_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/silo.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.silo_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.silo_logger.addHandler(self.file_handler)
-
     def search_silo_ez(self):
         try:
             r1 = requests.get(self.silo_EZ_1)
@@ -43,14 +25,11 @@ class Silo:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ silo {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.silo_SEA, r1_resp, resp1080p, resp720p))
-                self.silo_logger.info("\nEZ silo {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.silo_SEA, r1_resp, resp1080p, resp720p))
             else:
                 print("\nEZ silo {} => status: {}".format(self.silo_SEA, r1_resp))
-                self.silo_logger.info("\nEZ silo {} => status: {}".format(self.silo_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("silo unable to connect to EZTV")
-            self.silo_logger.error("silo unable to connect to EZTV")
             return 0
             
     def search_silo_ka(self):
@@ -67,14 +46,11 @@ class Silo:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA silo {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.silo_SEA, r3_resp, res1[0], res1[1]))
-                self.silo_logger.info("KA silo {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.silo_SEA, r3_resp, res1[0], res1[1]))
             else:
                 print("KA silo {} => status: {}".format(self.silo_SEA, r3_resp))
-                self.silo_logger.info("KA silo {} => status: {}".format(self.silo_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.silo_logger.error(e)
             return 0
             
 

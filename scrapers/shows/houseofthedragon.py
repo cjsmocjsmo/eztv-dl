@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class HouseOfTheDragon:
@@ -16,22 +14,6 @@ class HouseOfTheDragon:
         self.HOUSEOFTHEDRAGON_1337x_1 = "https://www.1377x.to/search/houseofthedragon"
         self.HOUSEOFTHEDRAGON_1337x_2 = "https://www.1377x.to/search/houseofthedragon/2"
 
-        self.HOUSEOFTHEDRAGON_logger = logging.getLogger(__name__)
-        self.HOUSEOFTHEDRAGON_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/houseofthedragon.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.HOUSEOFTHEDRAGON_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.HOUSEOFTHEDRAGON_logger.addHandler(self.file_handler)
-
     def search_houseofthedragon_ez(self):
         try:
             r1 = requests.get(self.HOUSEOFTHEDRAGON_EZ_1)
@@ -43,14 +25,12 @@ class HouseOfTheDragon:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ houseofthedragon {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.HOUSEOFTHEDRAGON_SEA, r1_resp, resp1080p, resp720p))
-                self.HOUSEOFTHEDRAGON_logger.info("\nEZ houseofthedragon {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.HOUSEOFTHEDRAGON_SEA, r1_resp, resp1080p, resp720p))
+                
             else:
                 print("\nEZ houseofthedragon {} => status: {}".format(self.HOUSEOFTHEDRAGON_SEA, r1_resp))
-                self.HOUSEOFTHEDRAGON_logger.info("\nEZ houseofthedragon {} => status: {}".format(self.HOUSEOFTHEDRAGON_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("houseofthedragon unable to connect to EZTV")
-            self.HOUSEOFTHEDRAGON_logger.error("houseofthedragon unable to connect to EZTV")
             return 0
             
     def search_houseofthedragon_ka(self):
@@ -67,14 +47,12 @@ class HouseOfTheDragon:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA houseofthedragon {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.HOUSEOFTHEDRAGON_SEA, r3_resp, res1[0], res1[1]))
-                self.HOUSEOFTHEDRAGON_logger.info("KA houseofthedragon {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.HOUSEOFTHEDRAGON_SEA, r3_resp, res1[0], res1[1]))
+                
             else:
                 print("KA houseofthedragon {} => status: {}".format(self.HOUSEOFTHEDRAGON_SEA, r3_resp))
-                self.HOUSEOFTHEDRAGON_logger.info("KA houseofthedragon {} => status: {}".format(self.HOUSEOFTHEDRAGON_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.HOUSEOFTHEDRAGON_logger.error(e)
             return 0
             
 

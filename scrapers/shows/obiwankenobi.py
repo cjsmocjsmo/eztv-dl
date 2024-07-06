@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class ObiWanKenobi:
@@ -16,22 +14,6 @@ class ObiWanKenobi:
         self.OBIWANKENOBI_1337x_1 = "https://www.1377x.to/search/obiwankenobi"
         self.OBIWANKENOBI_1337x_2 = "https://www.1377x.to/search/obiwankenobi/2"
 
-        self.OBIWANKENOBI_logger = logging.getLogger(__name__)
-        self.OBIWANKENOBI_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/obiwankenobi.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.OBIWANKENOBI_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.OBIWANKENOBI_logger.addHandler(self.file_handler)
-
     def search_obiwankenobi_ez(self):
         try:
             r1 = requests.get(self.OBIWANKENOBI_EZ_1)
@@ -43,14 +25,12 @@ class ObiWanKenobi:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ obiwankenobi {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.OBIWANKENOBI_SEA, r1_resp, resp1080p, resp720p))
-                self.OBIWANKENOBI_logger.info("\nEZ obiwankenobi {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.OBIWANKENOBI_SEA, r1_resp, resp1080p, resp720p))
+                
             else:
                 print("\nEZ obiwankenobi {} => status: {}".format(self.OBIWANKENOBI_SEA, r1_resp))
-                self.OBIWANKENOBI_logger.info("\nEZ obiwankenobi {} => status: {}".format(self.OBIWANKENOBI_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("obiwankenobi unable to connect to EZTV")
-            self.OBIWANKENOBI_logger.error("obiwankenobi unable to connect to EZTV")
             return 0
             
     def search_obiwankenobi_ka(self):
@@ -67,14 +47,12 @@ class ObiWanKenobi:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA obiwankenobi {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.OBIWANKENOBI_SEA, r3_resp, res1[0], res1[1]))
-                self.OBIWANKENOBI_logger.info("KA obiwankenobi {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.OBIWANKENOBI_SEA, r3_resp, res1[0], res1[1]))
+                
             else:
                 print("KA obiwankenobi {} => status: {}".format(self.OBIWANKENOBI_SEA, r3_resp))
-                self.OBIWANKENOBI_logger.info("KA obiwankenobi {} => status: {}".format(self.OBIWANKENOBI_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.OBIWANKENOBI_logger.error(e)
             return 0
             
 

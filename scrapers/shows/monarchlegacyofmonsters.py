@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class MonarchLegacyOfMonsters:
@@ -16,22 +14,6 @@ class MonarchLegacyOfMonsters:
         self.MONARCHLEGACYOFMONSTERS_1337x_1 = "https://www.1377x.to/search/monarchlegacyofmonsters"
         self.MONARCHLEGACYOFMONSTERS_1337x_2 = "https://www.1377x.to/search/monarchlegacyofmonsters/2"
 
-        self.MONARCHLEGACYOFMONSTERS_logger = logging.getLogger(__name__)
-        self.MONARCHLEGACYOFMONSTERS_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/monarchlegacyofmonsters.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.MONARCHLEGACYOFMONSTERS_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.MONARCHLEGACYOFMONSTERS_logger.addHandler(self.file_handler)
-
     def search_monarchlegacyofmonsters_ez(self):
         try:
             r1 = requests.get(self.MONARCHLEGACYOFMONSTERS_EZ_1)
@@ -43,14 +25,13 @@ class MonarchLegacyOfMonsters:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ monarchlegacyofmonsters {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r1_resp, resp1080p, resp720p))
-                self.MONARCHLEGACYOFMONSTERS_logger.info("\nEZ monarchlegacyofmonsters {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r1_resp, resp1080p, resp720p))
+
             else:
                 print("\nEZ monarchlegacyofmonsters {} => status: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r1_resp))
-                self.MONARCHLEGACYOFMONSTERS_logger.info("\nEZ monarchlegacyofmonsters {} => status: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r1_resp))
+
             return count
         except requests.exceptions.ConnectionError:
             print("monarchlegacyofmonsters unable to connect to EZTV")
-            self.MONARCHLEGACYOFMONSTERS_logger.error("monarchlegacyofmonsters unable to connect to EZTV")
             return 0
             
     def search_monarchlegacyofmonsters_ka(self):
@@ -67,14 +48,13 @@ class MonarchLegacyOfMonsters:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA monarchlegacyofmonsters {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r3_resp, res1[0], res1[1]))
-                self.MONARCHLEGACYOFMONSTERS_logger.info("KA monarchlegacyofmonsters {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r3_resp, res1[0], res1[1]))
+                
             else:
                 print("KA monarchlegacyofmonsters {} => status: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r3_resp))
-                self.MONARCHLEGACYOFMONSTERS_logger.info("KA monarchlegacyofmonsters {} => status: {}".format(self.MONARCHLEGACYOFMONSTERS_SEA, r3_resp))
+                
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.MONARCHLEGACYOFMONSTERS_logger.error(e)
             return 0
             
 
