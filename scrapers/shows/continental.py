@@ -1,7 +1,5 @@
 import requests
 import re
-import os
-import logging
 import shows.search as search
 
 class Continental:
@@ -16,22 +14,6 @@ class Continental:
         self.CONTINENTAL_1337x_1 = "https://www.1377x.to/search/continental"
         self.CONTINENTAL_1337x_2 = "https://www.1377x.to/search/continental/2"
 
-        self.CONTINENTAL_logger = logging.getLogger(__name__)
-        self.CONTINENTAL_logger.setLevel(logging.DEBUG)
-        self.file_handler = None
-        addr1 = cwd + '/logs/continental.log'
-        if os.path.exists(addr1):
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.CONTINENTAL_logger.addHandler(self.file_handler)
-        else:
-            # create addr1
-            with open(addr1, 'w') as f:
-                pass
-            self.file_handler = logging.FileHandler(addr1, mode='w')
-            self.file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-            self.CONTINENTAL_logger.addHandler(self.file_handler)
-
     def search_continental_ez(self):
         try:
             r1 = requests.get(self.CONTINENTAL_EZ_1)
@@ -43,14 +25,11 @@ class Continental:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ continental {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.CONTINENTAL_SEA, r1_resp, resp1080p, resp720p))
-                self.CONTINENTAL_logger.info("\nEZ continental {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.CONTINENTAL_SEA, r1_resp, resp1080p, resp720p))
             else:
                 print("\nEZ continental {} => status: {}".format(self.CONTINENTAL_SEA, r1_resp))
-                self.CONTINENTAL_logger.info("\nEZ continental {} => status: {}".format(self.CONTINENTAL_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
             print("continental unable to connect to EZTV")
-            self.CONTINENTAL_logger.error("continental unable to connect to EZTV")
             return 0
             
     def search_continental_ka(self):
@@ -67,16 +46,12 @@ class Continental:
                 res1 = (len(p2_list[0]), len(p2_list[1]))
                 count = res[0] + res[1] + res1[0] + res1[1]
                 print("KA continental {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.CONTINENTAL_SEA, r3_resp, res1[0], res1[1]))
-                self.CONTINENTAL_logger.info("KA continental {} => \n\tstatus: {}\n\t1080p: {}\n\t720p: {}".format(self.CONTINENTAL_SEA, r3_resp, res1[0], res1[1]))
             else:
                 print("KA continental {} => status: {}".format(self.CONTINENTAL_SEA, r3_resp))
-                self.CONTINENTAL_logger.info("KA continental {} => status: {}".format(self.CONTINENTAL_SEA, r3_resp))
             return count
         except requests.exceptions.ConnectionError as e:
             print(e)
-            self.CONTINENTAL_logger.error(e)
             return 0
-            
 
     def search_continental(self):
         if self.args.eztv:
