@@ -13,14 +13,11 @@ import shows.andor as ANDOR
 import shows.badbatch as BADBATCH
 import shows.bookofbobafett as BOOKOFBOBAFETT
 import shows.continental as CONTINENTAL
-import shows.discovery as DISCOVERY
 import shows.forallmankind as FORALLMANKIND
 import shows.foundation as FOUNDATION
 import shows.fubar as FUBAR
 import shows.halo as HALO
 import shows.houseofthedragon as HOUSEOFTHEDRAGON
-# import shows.lando as LANDO
-import shows.loki as LOKI
 import shows.lowerdecks as LOWERDECKS
 import shows.mandilorian as MANDILORIAN
 import shows.monarchlegacyofmonsters as MONARCHLEGACYOFMONSTER
@@ -36,15 +33,8 @@ import shows.shogun as SHOGUN
 import shows.fallout as FALLOUT
 import shows.thelastofus as THELASTOFUS
 
-
-
-# cwd = os.getcwd()
-# print(cwd)
-
 logger = logging.getLogger(__name__)
-# Set the log level
 logger.setLevel(logging.DEBUG)
-# Create a file handler
 file_handler = None
 if os.path.exists('/home/teresa/ScraperLogs/scraper.log'):
     file_handler = logging.FileHandler('/home/teresa/ScraperLogs/scraper.log', mode='w')
@@ -52,9 +42,7 @@ elif os.path.exists("/home/charliepi/ScraperLogs/scraper.log"):
     file_handler = logging.FileHandler('/home/charliepi/ScraperLogs/scraper.log', mode='w')
 elif os.path.exists("/home/pi/ScraperLogs/scraper.log"):
     file_handler = logging.FileHandler('/home/pi/ScraperLogs/scraper.log', mode='w')
-# Set the formatter for the file handler
 file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
-# Add the file handler to the logger
 logger.addHandler(file_handler)
 
 class CheckForNewEpisodes:
@@ -63,10 +51,6 @@ class CheckForNewEpisodes:
 
     def main(self, args, cwd):
         start = time.time()
-        addr = "/".join((cwd,'logs'))
-        if not os.path.exists(addr):
-            os.makedirs(addr)
-
         
         acolyte = ACOLYTE.Acolyte(args, cwd).search_acolyte()
         logger.info("Acolyte: {}".format(acolyte))
@@ -92,12 +76,8 @@ class CheckForNewEpisodes:
         logger.info("Continental: {}".format(continental))
         time.sleep(5)
 
-        discovery = DISCOVERY.Discovery(args, cwd).search_discovery()
-        logger.info("Discovery: {}".format(discovery))
-        time.sleep(5)
-
-        fubar = FUBAR.Fubar(args, cwd).search_fubar()
-        logger.info("Fubar: {}".format(fubar))
+        fallout = FALLOUT.Fallout(args, cwd).search_fallout()
+        logger.info("Fallout: {}".format(fallout))
         time.sleep(5)
 
         forallmankind = FORALLMANKIND.ForAllMankind(args, cwd).search_forallmankind()
@@ -108,8 +88,9 @@ class CheckForNewEpisodes:
         logger.info("Foundation: {}".format(foundation))
         time.sleep(5)
 
-        # groot = self.search_groot(args)
-        # time.sleep(5)
+        fubar = FUBAR.Fubar(args, cwd).search_fubar()
+        logger.info("Fubar: {}".format(fubar))
+        time.sleep(5)
 
         halo = HALO.Halo(args, cwd).search_halo()
         logger.info("Halo: {}".format(halo))
@@ -118,16 +99,6 @@ class CheckForNewEpisodes:
         houseofthedragon = HOUSEOFTHEDRAGON.HouseOfTheDragon(args, cwd).search_houseofthedragon()
         logger.info("HouseOfTheDragon: {}".format(houseofthedragon))
         time.sleep(5)
-
-        # lando = LANDO.Lando(args, cwd).search_lando()
-        # time.sleep(5)
-
-        loki = LOKI.Loki(args, cwd).search_loki()
-        logger.info("Loki: {}".format(loki))
-        time.sleep(5)
-
-        # lordoftherings = self.search_lord_of_the_rings()
-        # time.sleep(5)
 
         lowerdecks = LOWERDECKS.LowerDecks(args, cwd).search_lowerdecks_ez()
         logger.info("LowerDecks: {}".format(lowerdecks))
@@ -169,27 +140,31 @@ class CheckForNewEpisodes:
         logger.info("StrangeNewWorlds: {}".format(strangenewworlds))
         time.sleep(5)
 
-        wheeloftime = WHEELOFTIME.WheelOfTime(args, cwd).search_wheeloftime()
-        logger.info("WheelOfTime: {}".format(wheeloftime))
-        time.sleep(5)
-
         shogun = SHOGUN.Shogun(args, cwd).search_shogun()
         logger.info("Shogun: {}".format(shogun))
-        time.sleep(5)
-
-        fallout = FALLOUT.Fallout(args, cwd).search_fallout()
-        logger.info("Fallout: {}".format(fallout))
         time.sleep(5)
 
         thelastofus = THELASTOFUS.TheLastOfUs(args, cwd).search_thelastofus()
         logger.info("TheLastOfUs: {}".format(thelastofus))
         time.sleep(5)
-       
+
+        wheeloftime = WHEELOFTIME.WheelOfTime(args, cwd).search_wheeloftime()
+        logger.info("WheelOfTime: {}".format(wheeloftime))
+        time.sleep(5)
+
         epi_total = [
-            acolyte, ahsoka, andor, badbatch, bookofbobafett, continental, discovery, forallmankind, 
-            foundation, fubar, halo, houseofthedragon, loki, lowerdecks, mandalorian, 
-            monarch, obiwankenobi, orville, prehistoricplanet, silo, startrekprodigy,  starwarsvisions,
-            strangenewworlds, wheeloftime, shogun, fallout, thelastofus,
+            acolyte, ahsoka, andor, 
+            badbatch, bookofbobafett, 
+            continental, 
+            fallout, forallmankind, foundation, fubar, 
+            halo, houseofthedragon, 
+            lowerdecks, 
+            mandalorian, monarch, 
+            obiwankenobi, orville, 
+            prehistoricplanet, 
+            shogun, silo, startrekprodigy,  starwarsvisions, strangenewworlds,  
+            thelastofus,
+            wheeloftime, 
         ]
         end = time.time()
         ttime = (end - start) / 60

@@ -25,7 +25,7 @@ class Shogun:
                 resp720p = len(p1_list[1])
                 count += resp1080p + resp720p
                 print("\nEZ shogun {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.shogun_SEA, r1_resp, resp1080p, resp720p))
-                
+            else:    
                 print("\nEZ shogun {} => status: {}".format(self.shogun_SEA, r1_resp))
             return count
         except requests.exceptions.ConnectionError:
