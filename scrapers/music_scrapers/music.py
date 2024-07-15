@@ -4,15 +4,19 @@ import urllib.request
 import os
 import datetime
 import glob
+import re
 from pprint import pprint
 
 class DownLoad:
     def __init__(self):
         self.prefix = '/home/charliepi/Documents/tgx/'
+        self.downloads = '/home/charliepi/Documents/tgx/Downloads.txt'
         try:
             os.mkdir(self.prefix)
         except FileExistsError:
             pass
+        self.s1 = re.compile(r"Various Artists")
+        self.s2 = re.compile(r"COUNTRY")
 
     def clean_download_dir(self):
         gzfiles = glob.glob(self.prefix + '*.gz')
@@ -47,15 +51,15 @@ class DownLoad:
             for line in lines:
                 data = line.split("|")
                 if data[2] == "Music":
-                    print(data[1])
-                    user_choice = input("Enter 0 to save, 1 to delete: ")
-                    if user_choice == '0':
-                        dlist.append(data)
-                    elif user_choice == '1':
-                        pass
-                    else:
-                        print("Invalid choice. Please enter 0 or 1.")
+                    if re.search(self.s1, data[1]):
+                        dlist.append(data[4])
+                    if re.search(self.s2, data[1]):
+                        dlist.append(data[4])
+                    print(data)
         pprint(dlist)
+        with open(self.downloads, 'a') as download_file:
+            for item in dlist:
+                download_file.write(item + "\n")  # Add a newline character for each item
 
 if __name__ == "__main__":
     dl = DownLoad()
