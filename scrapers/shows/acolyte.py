@@ -6,7 +6,7 @@ class Acolyte:
     def __init__(self, args, cwd):
         self.args = args
         self.ACOLYTE = re.compile(r"acolyte")
-        self.ACOLYTE_SEA = "s01e08"
+        self.ACOLYTE_SEA = "s02e01"
         self.ACOLYTE_SEA_REG = re.compile(self.ACOLYTE_SEA)
         self.ACOLYTE_EZ_1 = "https://eztv.re/search/acolyte"
         self.ACOLYTE_KA_1 = "https://kickasstorrents.to/usearch/acolyte"
