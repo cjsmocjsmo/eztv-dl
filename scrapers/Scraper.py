@@ -42,6 +42,8 @@ elif os.path.exists("/home/charliepi/ScraperLogs/scraper.log"):
     file_handler = logging.FileHandler('/home/charliepi/ScraperLogs/scraper.log', mode='w')
 elif os.path.exists("/home/pi/ScraperLogs/scraper.log"):
     file_handler = logging.FileHandler('/home/pi/ScraperLogs/scraper.log', mode='w')
+elif os.path.exists("/home/pipi/ScraperLogs/scraper.log"):
+    file_handler = logging.FileHandler('/home/pipi/ScraperLogs/scraper.log', mode='w')
 file_handler.setFormatter(logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s'))
 logger.addHandler(file_handler)
 
