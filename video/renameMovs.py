@@ -1,6 +1,7 @@
 import os
 import re
 import glob
+from pprint import pprint
 
 
 MOVS_FOLDER = "/home/teresa/Downloads/movs"
@@ -105,7 +106,7 @@ def glob_dir_list(a_dir_list):
             "jpg_oldfilename": jpg_oldfilename,
             "mp4_oldfilename": mp4_oldfilename,
         }
-        print(meta)
+        pprint(meta)
         globlist.append(meta)
         
     return globlist
