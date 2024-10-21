@@ -66,7 +66,7 @@ def remove_rename_dir(adirlist):
     for dir in adirlist:
         baz = re.search(foo, dir)
         if baz != None:
-            bs = baz.start() -1
+            bs = baz.start() - 1
             # print(dir[:bs])
             os.renames(dir, dir[:bs])
 
