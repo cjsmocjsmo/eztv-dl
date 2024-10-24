@@ -117,6 +117,7 @@ def split_at_1080p(agloblist):
     s3 = re.compile(r"\.720p")
     s4 = re.compile(r"\.2160p")
     for meta in agloblist:
+        print(meta)
         search1 = re.search(s1, meta["mp4_oldfilename"])
         search2 = re.search(s2, meta["mp4_oldfilename"])
         search3 = re.search(s3, meta["mp4_oldfilename"])
