@@ -136,8 +136,10 @@ def split_at_1080p(agloblist):
         front =  "/".join((meta["savedir"], foo))
 
         newmp4path = front + foofn[-4:] + ").mp4"
+        print("\n")
         print(meta["mp4_fullpath"])
         print(newmp4path)
+        print("\n")
         os.renames(meta["mp4_fullpath"], newmp4path)
         if meta["jpg_fullpath"] != None:
             newjpgpath = front + foofn[-4:] + ").jpg"
