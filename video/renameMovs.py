@@ -106,7 +106,7 @@ def glob_dir_list(a_dir_list):
             "jpg_oldfilename": jpg_oldfilename,
             "mp4_oldfilename": mp4_oldfilename,
         }
-        pprint(meta)
+        # pprint(meta)
         globlist.append(meta)
         
     return globlist
