@@ -156,7 +156,7 @@ def run():
     # print(dirlist2)
     globlist = glob_dir_list(dirlist2)
     # print(globlist)
-    # split_at_1080p(globlist)
+    split_at_1080p(globlist)
 
 if __name__ == "__main__":
     run()
