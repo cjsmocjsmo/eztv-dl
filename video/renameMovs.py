@@ -115,10 +115,12 @@ def split_at_1080p(agloblist):
     s1 = re.compile(r"\.IMAX\.1080p")
     s2 = re.compile(r"\.1080p")
     s3 = re.compile(r"\.720p")
+    s4 = re.compile(r"\.2160p")
     for meta in agloblist:
         search1 = re.search(s1, meta["mp4_oldfilename"])
         search2 = re.search(s2, meta["mp4_oldfilename"])
         search3 = re.search(s3, meta["mp4_oldfilename"])
+        search4 = re.search(s4, meta["mp4_oldfilename"])
         splitindex_end = ""
         if search1:
             splitindex_end = search1.start()
@@ -126,6 +128,8 @@ def split_at_1080p(agloblist):
             splitindex_end = search2.start()
         elif search3:
             splitindex_end = search3.start()
+        elif search4:
+            splitindex_end = search4.start()
         fn = meta["mp4_oldfilename"][:splitindex_end]
         foofn = fn.replace("..", " ").replace("-", " ").replace(".", " ")
         foo = " ".join((foofn[:-5], "("))
