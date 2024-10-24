@@ -149,13 +149,13 @@ def run():
     remove_crap()
     rm_empty_dirs()
     dirlist = get_dir_list()
-    print(dirlist)
+    # print(dirlist)
     remove_rename_dir(dirlist)
     dirlist2 = get_dir_list()
     # print(dirlist2)
     globlist = glob_dir_list(dirlist2)
-    print(globlist)
-    # split_at_1080p(globlist)
+    # print(globlist)
+    split_at_1080p(globlist)
 
 if __name__ == "__main__":
     run()
