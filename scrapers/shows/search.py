@@ -16,7 +16,6 @@ class Search:
         for link in soup.findAll("a"):
             count += 1
             meta = (link.get("title"), link.get('href'))
-            print(meta)
             if meta[0] != None:
                 ltitle = meta[0].lower()
                 if re.search(regex, ltitle) != None:
