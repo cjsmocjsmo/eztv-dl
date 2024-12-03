@@ -9,8 +9,8 @@ from pprint import pprint
 
 class DownLoad:
     def __init__(self):
-        self.prefix = '/home/charliepi/Documents/tgx/'
-        self.downloads = '/home/charliepi/Documents/tgx/Downloads.txt'
+        self.prefix = '/home/pipi/Downloads/crap/'
+        self.downloads = '/home/pipi/Downloads/crap/Downloads.txt'
         try:
             os.mkdir(self.prefix)
         except FileExistsError:
@@ -55,7 +55,7 @@ class DownLoad:
                         dlist.append(data[4])
                     if re.search(self.s2, data[1]):
                         dlist.append(data[4])
-                    print(data)
+                    # print(data)
         pprint(dlist)
         with open(self.downloads, 'a') as download_file:
             for item in dlist:
