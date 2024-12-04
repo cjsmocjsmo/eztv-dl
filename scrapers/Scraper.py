@@ -32,6 +32,7 @@ import shows.wheeloftime as WHEELOFTIME
 import shows.shogun as SHOGUN
 import shows.fallout as FALLOUT
 import shows.thelastofus as THELASTOFUS
+import shows.skeletoncrew as SKELETONCREW
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -154,6 +155,9 @@ class CheckForNewEpisodes:
         logger.info("WheelOfTime: {}".format(wheeloftime))
         time.sleep(5)
 
+        skeletoncrew = SKELETONCREW.SkeletonCrew(args, cwd).search_skeletoncrew()
+        logger.info("SkeletonCrew: {}".format(skeletoncrew))
+
         epi_total = [
             acolyte, ahsoka, andor, 
             badbatch, bookofbobafett, 
@@ -166,7 +170,8 @@ class CheckForNewEpisodes:
             prehistoricplanet, 
             shogun, silo, startrekprodigy,  starwarsvisions, strangenewworlds,  
             thelastofus,
-            wheeloftime, 
+            wheeloftime,
+            skeletoncrew,
         ]
         end = time.time()
         ttime = (end - start) / 60
