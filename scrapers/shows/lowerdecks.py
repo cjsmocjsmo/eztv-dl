@@ -6,7 +6,7 @@ class LowerDecks:
     def __init__(self, args, cwd):
         self.args = args
         self.LOWERDECKS = re.compile(r"lower decks")
-        self.LOWERDECKS_SEA = "s05e08"
+        self.LOWERDECKS_SEA = "s05e09"
         self.LOWERDECKS_SEA_REG = re.compile(self.LOWERDECKS_SEA)
         self.LOWERDECKS_EZ_1 = "https://eztv.re/search/lower-decks"
         self.LOWERDECKS_KA_1 = "https://kickasstorrents.to/usearch/lowerdecks"
