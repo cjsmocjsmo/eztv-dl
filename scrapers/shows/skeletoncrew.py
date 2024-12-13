@@ -6,7 +6,7 @@ class SkeletonCrew:
     def __init__(self, args, cwd):
         self.args = args
         self.skeletoncrew = re.compile(r"skeletoncrew")
-        self.skeletoncrew_SEA = "s01e03"
+        self.skeletoncrew_SEA = "s01e04"
         self.skeletoncrew_SEA_REG = re.compile(self.skeletoncrew_SEA)
         self.skeletoncrew_EZ_1 = "https://eztv.re/search/skeleton-crew"
         self.skeletoncrew_KA_1 = "https://kickasstorrents.to/usearch/skeletoncrew"

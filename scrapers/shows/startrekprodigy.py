@@ -6,7 +6,7 @@ class StarTrekProdigy:
     def __init__(self, args, cwd):
         self.args = args
         self.STARTREKPRODIGY = re.compile(r"star trek prodigy")
-        self.STARTREKPRODIGY_SEA = "s02e01"
+        self.STARTREKPRODIGY_SEA = "s02e06"
         self.STARTREKPRODIGY_SEA_REG = re.compile(self.STARTREKPRODIGY_SEA)
         self.STARTREKPRODIGY_EZ_1 = "https://eztv.re/search/star-trek-prodigy"
         self.STARTREKPRODIGY_KA_1 = "https://kickasstorrents.to/usearch/startrekprodigy"
