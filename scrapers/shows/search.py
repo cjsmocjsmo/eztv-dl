@@ -20,6 +20,7 @@ class Search:
                 ltitle = meta[0].lower()
                 if re.search(regex, ltitle) != None:
                     if re.search(self.TEN_P, ltitle) != None:
+                        # print(meta)
                         list1080p.append(meta)
                     elif re.search(self.SEV_P, ltitle) != None:
                         list720p.append(meta)
