@@ -40,6 +40,12 @@ def remove_crap():
                     os.remove(fnn)
                 except FileNotFoundError:
                     pass
+            elif ext == ".nfo":
+                print("removing {}".format(fnn))
+                try:
+                    os.remove(fnn)
+                except FileNotFoundError:
+                    pass
             else:
                 print("Nothing to remove")
 
