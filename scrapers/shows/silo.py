@@ -6,7 +6,7 @@ class Silo:
     def __init__(self, args, cwd):
         self.args = args
         self.silo = re.compile(r"silo")
-        self.silo_SEA = "s02e11"
+        self.silo_SEA = "s03e01"
         self.silo_SEA_REG = re.compile(self.silo_SEA)
         self.silo_EZ_1 = "https://eztv.re/search/silo"
         self.silo_KA_1 = "https://kickasstorrents.to/usearch/silo"
