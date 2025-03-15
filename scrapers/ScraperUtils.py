@@ -664,7 +664,7 @@ class SkeletonCrew:
     def __init__(self, args, cwd):
         self.args = args
         self.skeletoncrew = re.compile(r"skeletoncrew")
-        self.skeletoncrew_SEA = "s01e09"
+        self.skeletoncrew_SEA = "s02e01"
         self.skeletoncrew_SEA_REG = re.compile(self.skeletoncrew_SEA)
         self.skeletoncrew_EZ_1 = "https://eztv.re/search/skeleton-crew"
 
