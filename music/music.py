@@ -12,7 +12,7 @@ import music.musictags as MT
 
 class Music:
     def __init__(self):
-        # self.apath = "/home/teresa/Music"
+        self.apath = "/home/teresa/Music"
         self.apath = "/media/charliepi/944D-6BF1/B"
         self.folder_fix_list = []
         self.front_cover_fix_list = []

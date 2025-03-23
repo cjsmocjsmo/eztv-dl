@@ -1,0 +1,39 @@
+# Base directory for music files
+base_directory: "/media/pipi/ATree/Music"
+thumbnail_directory: "/media/pipi/ATree/Music/Thumbnails"
+
+# File extensions to process
+file_extensions:
+  - ".mp3"
+  - ".flac"
+  - ".jpg"
+  - ".png"
+
+# Directory structure
+directory_structure:
+  category: 0
+  artist: 1
+  album: 2
+
+# File delimiters
+file_delimiters:
+  directory: "/"
+  file: 
+    - " - "
+    - ". "
+    - "_-_"
+    - "_"
+
+albumart_file_names:
+  - "cover.jpg"
+  - "folder.jpg"
+  - "front.jpg"
+
+convert_png_to_jpg:
+  enabled: True
+
+convert_flac_to_mp3:
+  enabled: True
+
+remove_special_characters:
+  enabled: True
