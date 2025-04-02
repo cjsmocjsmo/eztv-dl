@@ -159,6 +159,10 @@ class CheckForNewEpisodes:
 
         skeletoncrew = SHOWS.SkeletonCrew(args, cwd).search_skeletoncrew()
         logger.info("SkeletonCrew: {}".format(skeletoncrew))
+        time.sleep(5)
+
+        mobland = SHOWS.MobLand(args, cwd).search_mobland()
+        logger.info("MobLand: {}".format(mobland))
 
         epi_total = [
             acolyte, ahsoka, andor, 
@@ -167,7 +171,7 @@ class CheckForNewEpisodes:
             fallout, forallmankind, foundation, fubar, 
             halo, houseofthedragon, 
             lowerdecks, 
-            mandalorian, monarch, 
+            mobland, mandalorian, monarch, 
             obiwankenobi, orville, 
             prehistoricplanet, 
             shogun, silo, startrekprodigy,  starwarsvisions, strangenewworlds,  
