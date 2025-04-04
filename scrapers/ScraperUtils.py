@@ -883,3 +883,6 @@ class MobLand:
             ez_count = self.search_mobland_ez()
             return ez_count
         
+
+
+        
