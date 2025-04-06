@@ -1,40 +1,8 @@
 import os
 import time
-import requests
 import logging
 import argparse
-from pprint import pprint
-# import shows.search as ez
-
-
-# import shows.acolyte as ACOLYTE
-# import shows.ahsoka as AHSOKA
-# import shows.andor as ANDOR
-# import shows.badbatch as BADBATCH
-# import shows.bookofbobafett as BOOKOFBOBAFETT
-# import shows.continental as CONTINENTAL
-# import shows.forallmankind as FORALLMANKIND
-# import shows.foundation as FOUNDATION
-# import shows.fubar as FUBAR
-# import shows.halo as HALO
-# import shows.houseofthedragon as HOUSEOFTHEDRAGON
-# import shows.lowerdecks as LOWERDECKS
-# import shows.mandilorian as MANDILORIAN
-# import shows.monarchlegacyofmonsters as MONARCHLEGACYOFMONSTER
-# import shows.obiwankenobi as OBIWANKENOBI
-# import shows.orville as ORVILLE
-# import shows.prehistoricplanet as PREHISTORICPLANET
-# import shows.silo as SILO
-# import shows.startrekprodigy as STARTREKPRODIGY
-# import shows.starwarsvisions as STARWARSVISIONS
-# import shows.strangenewworlds as STRANGENEWWORLDS
-# import shows.wheeloftime as WHEELOFTIME
-# import shows.shogun as SHOGUN
-# import shows.fallout as FALLOUT
-# import shows.thelastofus as THELASTOFUS
-# import shows.skeletoncrew as SKELETONCREW
-
-import ScraperUtils as SHOWS
+import scrapers.Utils as SHOWS
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
