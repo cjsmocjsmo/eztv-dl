@@ -1048,6 +1048,36 @@ class ProcessTalesOfTheEmpire:
             except FileNotFoundError:
                 print(oldstring, newstring)
 
+class ProcessMobLand:
+    def __init__(self):
+        self.LDre1 = re.compile("mobland.")
+
+        self.SNWcount = len("mobland.")
+
+    def scan_file(self, filetup):
+        s1 = re.search(self.LDre1, filetup[1].lower())
+
+        if s1 != None:
+            return True
+        else:
+            return False
+
+    def process_file(self, filetup):
+        if self.scan_file(filetup) != True:
+            pass
+        else:
+            raw = filetup[1][self.SNWcount:]
+            season = raw[:3]
+            episode = raw[3:6]
+            newstring = filetup[0] + "/MobLand " + season.upper() + episode.upper() + " Episode" + episode[1:] + filetup[2]
+            oldstring = filetup[0] + "/" + filetup[1] + filetup[2]
+            print(newstring)
+            print(oldstring)
+            try:
+                os.renames(oldstring, newstring)
+            except FileNotFoundError:
+                print(oldstring, newstring)
+
 class TVSNameClean:
     def __init__(self):
         # self.tvfolder = "/media/charliepi/CHOCOLATE/tvshows"
@@ -1102,6 +1132,7 @@ if __name__ == "__main__":
     FAL = ProcessFallout()
     ACO = ProcessAcolyte()
     TOTE = ProcessTalesOfTheEmpire()
+    ML = ProcessMobLand()
 
     tvfiles = TVC.find_tvs_files()
     for tv in tvfiles:
@@ -1136,3 +1167,4 @@ if __name__ == "__main__":
         FAL.process_file(tv)
         ACO.process_file(tv)
         TOTE.process_file(tv)
+        ML.process_file(tv)
