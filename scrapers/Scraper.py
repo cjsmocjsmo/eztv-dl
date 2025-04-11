@@ -2,7 +2,7 @@ import os
 import time
 import logging
 import argparse
-import scrapers.Utils as SHOWS
+import Utils as SHOWS
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
