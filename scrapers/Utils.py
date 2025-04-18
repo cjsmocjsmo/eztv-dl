@@ -823,7 +823,7 @@ class WheelOfTime:
     def __init__(self, args, cwd):
         self.args = args
         self.WHEELOFTIME = re.compile(r"wheel of time")
-        self.WHEELOFTIME_SEA = "s03e08"
+        self.WHEELOFTIME_SEA = "s03e09"
         self.WHEELOFTIME_SEA_REG = re.compile(self.WHEELOFTIME_SEA)
         self.WHEELOFTIME_EZ_1 = "https://eztv.re/search/wheel-of-time"
 
