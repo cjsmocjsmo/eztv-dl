@@ -45,10 +45,6 @@ class CheckForNewEpisodes:
         logger.info("BookOfBobaFett: {}".format(bookofbobafett))
         time.sleep(5)
 
-        continental = SHOWS.Continental(args, cwd).search_continental()
-        logger.info("Continental: {}".format(continental))
-        time.sleep(5)
-
         fallout = SHOWS.Fallout(args, cwd).search_fallout()
         logger.info("Fallout: {}".format(fallout))
         time.sleep(5)
@@ -71,10 +67,6 @@ class CheckForNewEpisodes:
 
         houseofthedragon = SHOWS.HouseOfTheDragon(args, cwd).search_houseofthedragon()
         logger.info("HouseOfTheDragon: {}".format(houseofthedragon))
-        time.sleep(5)
-
-        lowerdecks = SHOWS.LowerDecks(args, cwd).search_lowerdecks_ez()
-        logger.info("LowerDecks: {}".format(lowerdecks))
         time.sleep(5)
 
         mandalorian = SHOWS.Mandilorian(args, cwd).search_mandilorian()

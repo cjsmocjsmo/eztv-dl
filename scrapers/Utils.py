@@ -182,37 +182,6 @@ class BookOfBobaFett:
             ez_count = self.search_bookofbobafett_ez()
             return ez_count
         
-class Continental:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.CONTINENTAL = re.compile(r"continental")
-        self.CONTINENTAL_SEA = "s01e04"
-        self.CONTINENTAL_SEA_REG = re.compile(self.CONTINENTAL_SEA)
-        self.CONTINENTAL_EZ_1 = "https://eztv.re/search/continental"
-
-    def search_continental_ez(self):
-        try:
-            r1 = requests.get(self.CONTINENTAL_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.CONTINENTAL_SEA, self.CONTINENTAL_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ continental {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.CONTINENTAL_SEA, r1_resp, resp1080p, resp720p))
-            else:
-                print("\nEZ continental {} => status: {}".format(self.CONTINENTAL_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("continental unable to connect to EZTV")
-            return 0
-
-    def search_continental(self):
-        if self.args.eztv:
-            ez_count = self.search_continental_ez()
-            return ez_count
-        
 class Fallout:
     def __init__(self, args, cwd):
         self.args = args
@@ -403,38 +372,6 @@ class HouseOfTheDragon:
     def search_houseofthedragon(self):
         if self.args.eztv:
             ez_count = self.search_houseofthedragon_ez()
-            return ez_count
-        
-class LowerDecks:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.LOWERDECKS = re.compile(r"lower decks")
-        self.LOWERDECKS_SEA = "s05e11"
-        self.LOWERDECKS_SEA_REG = re.compile(self.LOWERDECKS_SEA)
-        self.LOWERDECKS_EZ_1 = "https://eztv.re/search/lower-decks"
-
-    def search_lowerdecks_ez(self):
-        try:
-            r1 = requests.get(self.LOWERDECKS_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.LOWERDECKS_SEA, self.LOWERDECKS_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ LOWERDECKS {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.LOWERDECKS_SEA, r1_resp, resp1080p, resp720p))
-                
-            else:
-                print("\nEZ LOWERDECKS {} => status: {}".format(self.LOWERDECKS_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("LOWERDECKS unable to connect to EZTV")
-            return 0
-
-    def search_lowerdecks(self):
-        if self.args.eztv:
-            ez_count = self.search_lowerdecks_ez()
             return ez_count
 
 class Mandilorian:
