@@ -126,11 +126,9 @@ class CheckForNewEpisodes:
 
         epi_total = [
             acolyte, ahsoka, andor, 
-            badbatch, bookofbobafett, 
-            continental, 
+            badbatch, bookofbobafett,
             fallout, forallmankind, foundation, fubar, 
-            halo, houseofthedragon, 
-            lowerdecks, 
+            halo, houseofthedragon,
             mobland, mandalorian, monarch, 
             obiwankenobi, orville, 
             prehistoricplanet, 
