@@ -156,7 +156,7 @@ def run():
     remove_crap()
     rm_empty_dirs()
     dirlist = get_dir_list()
-    # print(dirlist)
+    print(dirlist)
     # remove_rename_dir(dirlist)
     # dirlist2 = get_dir_list()
     # # print(dirlist2)
