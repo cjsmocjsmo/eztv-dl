@@ -73,8 +73,9 @@ def remove_rename_dir(adirlist):
         baz = re.search(foo, dir)
         if baz != None:
             bs = baz.start() - 1
+            zoo = dir[:bs].replace(" ", "_")
             # print(dir[:bs])
-            os.renames(dir, dir[:bs])
+            os.renames(dir, zoo)
 
 def glob_for_jpg(adir):
     jpgglobpath = "/".join((adir, "*.jpg"))
