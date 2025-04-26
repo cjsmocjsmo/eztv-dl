@@ -159,9 +159,9 @@ def run():
     # print(dirlist)
     remove_rename_dir(dirlist)
     dirlist2 = get_dir_list()
-    print(dirlist2)
-    # globlist = glob_dir_list(dirlist2)
-    # # print(globlist)
+    # print(dirlist2)
+    globlist = glob_dir_list(dirlist2)
+    print(globlist)
     # split_at_1080p(globlist)
 
 if __name__ == "__main__":
