@@ -93,6 +93,7 @@ def glob_for_mp4(adir):
     mp4globpath = "/".join((adir, "*.mp4"))
     mp4_glob = glob.glob(mp4globpath)
     if len(mp4_glob) < 1:
+        print("THIS IS NOT AN MP4 FILE\n\t")
         print(mp4globpath)
         os._exit(1)
     try:
@@ -163,7 +164,7 @@ def run():
     # print(dirlist2)
     globlist = glob_dir_list(dirlist2)
     pprint(globlist)
-    # split_at_1080p(globlist)
+    split_at_1080p(globlist)
 
 if __name__ == "__main__":
     run()
