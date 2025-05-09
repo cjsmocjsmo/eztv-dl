@@ -93,7 +93,7 @@ class Andor:
     def __init__(self, args, cwd):
         self.args = args
         self.ANDOR = re.compile(r"andor")
-        self.ANDOR_SEA = "s02e04"
+        self.ANDOR_SEA = "s02e10"
         self.ANDOR_SEA_REG = re.compile(self.ANDOR_SEA)
         self.ANDOR_EZ_1 = "https://eztv.re/search/andor"
 
@@ -728,7 +728,7 @@ class TheLastOfUs:
     def __init__(self, args, cwd):
         self.args = args
         self.thelastofus = re.compile(r"thelastofus")
-        self.thelastofus_SEA = "s02e03"
+        self.thelastofus_SEA = "s02e04"
         self.thelastofus_SEA_REG = re.compile(self.thelastofus_SEA)
         self.thelastofus_EZ_1 = "https://eztv.re/search/the-last-of-us"
 
@@ -792,7 +792,7 @@ class MobLand:
     def __init__(self, args, cwd):
         self.args = args
         self.MOBLAND = re.compile(r"mobland")
-        self.MOBLAND_SEA = "s01e05"
+        self.MOBLAND_SEA = "s01e07"
         self.MOBLAND_SEA_REG = re.compile(self.MOBLAND_SEA)
         self.MOBLAND_EZ_1 = "https://eztv.re/search/mobland"
 
