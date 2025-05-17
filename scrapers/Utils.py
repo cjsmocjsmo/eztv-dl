@@ -93,7 +93,7 @@ class Andor:
     def __init__(self, args, cwd):
         self.args = args
         self.ANDOR = re.compile(r"andor")
-        self.ANDOR_SEA = "s02e10"
+        self.ANDOR_SEA = "s03e01"
         self.ANDOR_SEA_REG = re.compile(self.ANDOR_SEA)
         self.ANDOR_EZ_1 = "https://eztv.re/search/andor"
 
