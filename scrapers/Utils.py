@@ -88,38 +88,7 @@ class Ahsoka:
         if self.args.eztv:
             ez_count = self.search_ahsoka_ez()
             return ez_count
-        
-class Andor:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.ANDOR = re.compile(r"andor")
-        self.ANDOR_SEA = "s03e01"
-        self.ANDOR_SEA_REG = re.compile(self.ANDOR_SEA)
-        self.ANDOR_EZ_1 = "https://eztv.re/search/andor"
 
-    def search_andor_ez(self):
-        try:
-            r1 = requests.get(self.ANDOR_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.ANDOR_SEA, self.ANDOR_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ Andor {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.ANDOR_SEA, r1_resp, resp1080p, resp720p))
-            else:
-                print("\nEZ Andor {} => status: {}".format(self.ANDOR_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("Andor unable to connect to EZTV")
-            return 0
-
-    def search_andor(self):
-        if self.args.eztv:
-            ez_count = self.search_andor_ez()
-            return ez_count
-        
 class BadBatch:
     def __init__(self, args, cwd):
         self.args = args

@@ -33,10 +33,6 @@ class CheckForNewEpisodes:
         logger.info("Ahsoka: {}".format(ahsoka))
         time.sleep(5)
 
-        andor = SHOWS.Andor(args, cwd).search_andor()
-        logger.info("Andor: {}".format(andor))
-        time.sleep(5)
-
         badbatch = SHOWS.BadBatch(args, cwd).search_badbatch()
         logger.info("BadBatch: {}".format(badbatch))
         time.sleep(5)
@@ -125,7 +121,7 @@ class CheckForNewEpisodes:
         logger.info("MobLand: {}".format(mobland))
 
         epi_total = [
-            acolyte, ahsoka, andor, 
+            acolyte, ahsoka,
             badbatch, bookofbobafett,
             fallout, forallmankind, foundation, fubar, 
             halo, houseofthedragon,
