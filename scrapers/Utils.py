@@ -761,7 +761,7 @@ class MobLand:
     def __init__(self, args, cwd):
         self.args = args
         self.MOBLAND = re.compile(r"mobland")
-        self.MOBLAND_SEA = "s01e10"
+        self.MOBLAND_SEA = "s02e01"
         self.MOBLAND_SEA_REG = re.compile(self.MOBLAND_SEA)
         self.MOBLAND_EZ_1 = "https://eztv.re/search/mobland"
 
