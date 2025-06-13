@@ -251,7 +251,7 @@ class Fubar:
     def __init__(self, args, cwd):
         self.args = args
         self.FUBAR = re.compile(r"fubar")
-        self.FUBAR_SEA = "s02e01"
+        self.FUBAR_SEA = "s03e01"
         self.FUBAR_SEA_REG = re.compile(self.FUBAR_SEA)
         self.FUBAR_EZ_1 = "https://eztv.re/search/fubar"
 
