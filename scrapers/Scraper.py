@@ -119,12 +119,18 @@ class CheckForNewEpisodes:
 
         mobland = SHOWS.MobLand(args, cwd).search_mobland()
         logger.info("MobLand: {}".format(mobland))
+        time.sleep(5)
+
+        ironheart = SHOWS.IronHeart(args, cwd).search_ironheart()
+        logger.info("IronHeart: {}".format(ironheart))
+        
 
         epi_total = [
             acolyte, ahsoka,
             badbatch, bookofbobafett,
             fallout, forallmankind, foundation, fubar, 
             halo, houseofthedragon,
+            ironheart,
             mobland, mandalorian, monarch, 
             obiwankenobi, orville, 
             prehistoricplanet, 
