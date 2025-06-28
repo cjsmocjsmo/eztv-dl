@@ -24,21 +24,9 @@ class CheckForNewEpisodes:
 
     def main(self, args, cwd):
         start = time.time()
-        
-        acolyte = SHOWS.Acolyte(args, cwd).search_acolyte()
-        logger.info("Acolyte: {}".format(acolyte))
-        time.sleep(5)
 
         ahsoka = SHOWS.Ahsoka(args, cwd).search_ahsoka()
         logger.info("Ahsoka: {}".format(ahsoka))
-        time.sleep(5)
-
-        badbatch = SHOWS.BadBatch(args, cwd).search_badbatch()
-        logger.info("BadBatch: {}".format(badbatch))
-        time.sleep(5)
-
-        bookofbobafett = SHOWS.BookOfBobaFett(args, cwd).search_bookofbobafett()
-        logger.info("BookOfBobaFett: {}".format(bookofbobafett))
         time.sleep(5)
 
         fallout = SHOWS.Fallout(args, cwd).search_fallout()
@@ -55,10 +43,6 @@ class CheckForNewEpisodes:
 
         fubar = SHOWS.Fubar(args, cwd).search_fubar()
         logger.info("Fubar: {}".format(fubar))
-        time.sleep(5)
-
-        halo = SHOWS.Halo(args, cwd).search_halo()
-        logger.info("Halo: {}".format(halo))
         time.sleep(5)
 
         houseofthedragon = SHOWS.HouseOfTheDragon(args, cwd).search_houseofthedragon()
@@ -89,10 +73,6 @@ class CheckForNewEpisodes:
         logger.info("Silo: {}".format(silo))
         time.sleep(5)
 
-        startrekprodigy = SHOWS.StarTrekProdigy(args, cwd).search_startrekprodigy()
-        logger.info("StarTrekProdigy: {}".format(startrekprodigy))
-        time.sleep(5)
-
         starwarsvisions = SHOWS.StarWarsVisions(args, cwd).search_starwarsvisions()
         logger.info("StarWarsVisions: {}".format(starwarsvisions))
         time.sleep(5)
@@ -109,10 +89,6 @@ class CheckForNewEpisodes:
         logger.info("TheLastOfUs: {}".format(thelastofus))
         time.sleep(5)
 
-        wheeloftime = SHOWS.WheelOfTime(args, cwd).search_wheeloftime()
-        logger.info("WheelOfTime: {}".format(wheeloftime))
-        time.sleep(5)
-
         skeletoncrew = SHOWS.SkeletonCrew(args, cwd).search_skeletoncrew()
         logger.info("SkeletonCrew: {}".format(skeletoncrew))
         time.sleep(5)
@@ -126,17 +102,16 @@ class CheckForNewEpisodes:
         
 
         epi_total = [
-            acolyte, ahsoka,
-            badbatch, bookofbobafett,
-            fallout, forallmankind, foundation, fubar, 
-            halo, houseofthedragon,
+            ahsoka,
+            fallout, forallmankind, foundation, fubar,
+            houseofthedragon,
             ironheart,
             mobland, mandalorian, monarch, 
             obiwankenobi, orville, 
             prehistoricplanet, 
-            shogun, silo, startrekprodigy,  starwarsvisions, strangenewworlds,  
+            shogun, silo,
+            starwarsvisions, strangenewworlds,  
             thelastofus,
-            wheeloftime,
             skeletoncrew,
         ]
         end = time.time()

@@ -27,37 +27,6 @@ class Search:
                         pass
         return (list1080p, list720p)
 
-class Acolyte:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.ACOLYTE = re.compile(r"acolyte")
-        self.ACOLYTE_SEA = "s02e01"
-        self.ACOLYTE_SEA_REG = re.compile(self.ACOLYTE_SEA)
-        self.ACOLYTE_EZ_1 = "https://eztv.re/search/acolyte"
-
-    def search_acolyte_ez(self):
-        try:
-            r1 = requests.get(self.ACOLYTE_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.ACOLYTE_SEA, self.ACOLYTE_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ acolyte {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.ACOLYTE_SEA, r1_resp, resp1080p, resp720p))
-            else:
-                print("\nEZ acolyte {} => status: {}".format(self.ACOLYTE_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("acolyte unable to connect to EZTV")
-            return 0
-
-    def search_acolyte(self):
-        if self.args.eztv:
-            ez_count = self.search_acolyte_ez()
-            return ez_count
-        
 class Ahsoka:
     def __init__(self, args, cwd):
         self.args = args
@@ -87,68 +56,6 @@ class Ahsoka:
     def search_ahsoka(self):
         if self.args.eztv:
             ez_count = self.search_ahsoka_ez()
-            return ez_count
-
-class BadBatch:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.BADBATCH = re.compile(r"bad batch")
-        self.BADBATCH_SEA = "s04e01"
-        self.BADBATCH_SEA_REG = re.compile(self.BADBATCH_SEA)
-        self.BADBATCH_EZ_1 = "https://eztv.re/search/bad-batch"
-
-    def search_badbatch_ez(self):
-        try:
-            r1 = requests.get(self.BADBATCH_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.BADBATCH_SEA, self.BADBATCH_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ badbatch {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.BADBATCH_SEA, r1_resp, resp1080p, resp720p))
-            else:
-                print("\nEZ badbatch {} => status: {}".format(self.BADBATCH_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("badbatch unable to connect to EZTV")
-            return 0
-
-    def search_badbatch(self):
-        if self.args.eztv:
-            ez_count = self.search_badbatch_ez()
-            return ez_count
-        
-class BookOfBobaFett:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.BOOKOFBOBAFETT = re.compile(r"book of boba fett")
-        self.BOOKOFBOBAFETT_SEA = "s02e01"
-        self.BOOKOFBOBAFETT_SEA_REG = re.compile(self.BOOKOFBOBAFETT_SEA)
-        self.BOOKOFBOBAFETT_EZ_1 = "https://eztv.re/search/book-of-boba-fett"
-
-    def search_bookofbobafett_ez(self):
-        try:
-            r1 = requests.get(self.BOOKOFBOBAFETT_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.BOOKOFBOBAFETT_SEA, self.BOOKOFBOBAFETT_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ bookofbobafett {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.BOOKOFBOBAFETT_SEA, r1_resp, resp1080p, resp720p))
-            else:
-                print("\nEZ bookofbobafett {} => status: {}".format(self.BOOKOFBOBAFETT_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("bookofbobafett unable to connect to EZTV")
-            return 0
-
-    def search_bookofbobafett(self):
-        if self.args.eztv:
-            ez_count = self.search_bookofbobafett_ez()
             return ez_count
         
 class Fallout:
@@ -277,38 +184,6 @@ class Fubar:
     def search_fubar(self):
         if self.args.eztv:
             ez_count = self.search_fubar_ez()
-            return ez_count
-        
-class Halo:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.HALO = re.compile(r"halo")
-        self.HALO_SEA = "s03e01"
-        self.HALO_SEA_REG = re.compile(self.HALO_SEA)
-        self.HALO_EZ_1 = "https://eztv.re/search/halo"
-
-    def search_halo_ez(self):
-        try:
-            r1 = requests.get(self.HALO_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.HALO_SEA, self.HALO_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ halo {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.HALO_SEA, r1_resp, resp1080p, resp720p))
-                
-            else:
-                print("\nEZ halo {} => status: {}".format(self.HALO_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("halo unable to connect to EZTV")
-            return 0
-
-    def search_halo(self):
-        if self.args.eztv:
-            ez_count = self.search_halo_ez()
             return ez_count
 
 class HouseOfTheDragon:
@@ -597,38 +472,6 @@ class SkeletonCrew:
             ez_count = self.search_skeletoncrew_ez()
             return ez_count
 
-class StarTrekProdigy:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.STARTREKPRODIGY = re.compile(r"star trek prodigy")
-        self.STARTREKPRODIGY_SEA = "s02e06"
-        self.STARTREKPRODIGY_SEA_REG = re.compile(self.STARTREKPRODIGY_SEA)
-        self.STARTREKPRODIGY_EZ_1 = "https://eztv.re/search/star-trek-prodigy"
-
-    def search_startrekprodigy_ez(self):
-        try:
-            r1 = requests.get(self.STARTREKPRODIGY_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.STARTREKPRODIGY_SEA, self.STARTREKPRODIGY_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ startrekprodigy {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.STARTREKPRODIGY_SEA, r1_resp, resp1080p, resp720p))
-                
-            else:
-                print("\nEZ startrekprodigy {} => status: {}".format(self.STARTREKPRODIGY_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("startrekprodigy unable to connect to EZTV")
-            return 0
-
-    def search_startrekprodigy(self):
-        if self.args.eztv:
-            ez_count = self.search_startrekprodigy_ez()
-            return ez_count
-
 class StarWarsVisions:
     def __init__(self, args, cwd):
         self.args = args
@@ -723,38 +566,6 @@ class TheLastOfUs:
     def search_thelastofus(self):
         if self.args.eztv:
             ez_count = self.search_thelastofus_ez()
-            return ez_count
-        
-class WheelOfTime:
-    def __init__(self, args, cwd):
-        self.args = args
-        self.WHEELOFTIME = re.compile(r"wheel of time")
-        self.WHEELOFTIME_SEA = "s04e01"
-        self.WHEELOFTIME_SEA_REG = re.compile(self.WHEELOFTIME_SEA)
-        self.WHEELOFTIME_EZ_1 = "https://eztv.re/search/wheel-of-time"
-
-    def search_wheeloftime_ez(self):
-        try:
-            r1 = requests.get(self.WHEELOFTIME_EZ_1)
-            r1_resp = r1.status_code
-            count = 0
-            if r1_resp == 200:
-                p1_list = Search().ez_search_for_new_episode(r1.text, self.WHEELOFTIME_SEA, self.WHEELOFTIME_SEA_REG)
-                resp1080p = len(p1_list[0])
-                resp720p = len(p1_list[1])
-                count += resp1080p + resp720p
-                print("\nEZ wheeloftime {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.WHEELOFTIME_SEA, r1_resp, resp1080p, resp720p))
-                
-            else:
-                print("\nEZ wheeloftime {} => status: {}".format(self.WHEELOFTIME_SEA, r1_resp))
-            return count
-        except requests.exceptions.ConnectionError:
-            print("wheeloftime unable to connect to EZTV")
-            return 0
-
-    def search_wheeloftime(self):
-        if self.args.eztv:
-            ez_count = self.search_wheeloftime_ez()
             return ez_count
         
 class MobLand:
