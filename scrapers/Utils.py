@@ -604,7 +604,7 @@ class IronHeart:
     def __init__(self, args, cwd):
         self.args = args
         self.IRONHEART = re.compile(r"iron heart")
-        self.IRONHEART_SEA = "s01e04"
+        self.IRONHEART_SEA = "s01e05"
         self.IRONHEART_SEA_REG = re.compile(self.IRONHEART_SEA)
         self.IRONHEART_EZ_1 = "https://eztv.re/search/ironheart"
 
