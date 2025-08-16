@@ -99,6 +99,10 @@ class CheckForNewEpisodes:
 
         ironheart = SHOWS.IronHeart(args, cwd).search_ironheart()
         logger.info("IronHeart: {}".format(ironheart))
+
+        wednesday = SHOWS.Wednesday(args, cwd).search_wednesday()
+        logger.info("Wednesday: {}".format(wednesday))
+
         
 
         epi_total = [
@@ -108,11 +112,12 @@ class CheckForNewEpisodes:
             ironheart,
             mobland, mandalorian, monarch, 
             obiwankenobi, orville, 
-            prehistoricplanet, 
+            prehistoricplanet,
             shogun, silo,
             starwarsvisions, strangenewworlds,  
             thelastofus,
             skeletoncrew,
+            wednesday,
         ]
         end = time.time()
         ttime = (end - start) / 60

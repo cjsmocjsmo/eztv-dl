@@ -126,7 +126,7 @@ class Foundation:
     def __init__(self, args, cwd):
         self.args = args
         self.FOUNDATION = re.compile(r"foundation")
-        self.FOUNDATION_SEA = "s03e03"
+        self.FOUNDATION_SEA = "s03e07"
         self.FOUNDATION_SEA_REG = re.compile(self.FOUNDATION_SEA)
         self.FOUNDATION_EZ_1 = "https://eztv.re/search/foundation"
 
@@ -508,7 +508,7 @@ class StrangeNewWorlds:
     def __init__(self, args, cwd):
         self.args = args
         self.STRANGENEWWORLDS = re.compile(r"strange new worlds")
-        self.STRANGENEWWORLDS_SEA = "s03e03"
+        self.STRANGENEWWORLDS_SEA = "s03e07"
         self.STRANGENEWWORLDS_SEA_REG = re.compile(self.STRANGENEWWORLDS_SEA)
         self.STRANGENEWWORLDS_EZ_1 = "https://eztv.re/search/strange-new-worlds"
 
@@ -631,3 +631,36 @@ class IronHeart:
         if self.args.eztv:
             ez_count = self.search_ironheart_ez()
             return ez_count
+
+class Wednesday:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.WEDNESDAY = re.compile(r"wednesday")
+        self.WEDNESDAY_SEA = "s02e05"
+        self.WEDNESDAY_SEA_REG = re.compile(self.WEDNESDAY_SEA)
+        self.WEDNESDAY_EZ_1 = "https://eztv.re/search/wednesday"
+
+    def search_wednesday_ez(self):
+        try:
+            r1 = requests.get(self.WEDNESDAY_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.WEDNESDAY_SEA, self.WEDNESDAY_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ wednesday {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.WEDNESDAY_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ wednesday {} => status: {}".format(self.WEDNESDAY_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("wednesday unable to connect to EZTV")
+            return 0
+
+    def search_wednesday(self):
+        if self.args.eztv:
+            ez_count = self.search_wednesday_ez()
+            return ez_count
+
