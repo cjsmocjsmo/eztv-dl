@@ -126,7 +126,7 @@ class Foundation:
     def __init__(self, args, cwd):
         self.args = args
         self.FOUNDATION = re.compile(r"foundation")
-        self.FOUNDATION_SEA = "s03e07"
+        self.FOUNDATION_SEA = "s03e08"
         self.FOUNDATION_SEA_REG = re.compile(self.FOUNDATION_SEA)
         self.FOUNDATION_EZ_1 = "https://eztv.re/search/foundation"
 
@@ -508,7 +508,7 @@ class StrangeNewWorlds:
     def __init__(self, args, cwd):
         self.args = args
         self.STRANGENEWWORLDS = re.compile(r"strange new worlds")
-        self.STRANGENEWWORLDS_SEA = "s03e07"
+        self.STRANGENEWWORLDS_SEA = "s03e08"
         self.STRANGENEWWORLDS_SEA_REG = re.compile(self.STRANGENEWWORLDS_SEA)
         self.STRANGENEWWORLDS_EZ_1 = "https://eztv.re/search/strange-new-worlds"
 
@@ -604,7 +604,7 @@ class IronHeart:
     def __init__(self, args, cwd):
         self.args = args
         self.IRONHEART = re.compile(r"iron heart")
-        self.IRONHEART_SEA = "s01e07"
+        self.IRONHEART_SEA = "s02e01"
         self.IRONHEART_SEA_REG = re.compile(self.IRONHEART_SEA)
         self.IRONHEART_EZ_1 = "https://eztv.re/search/ironheart"
 
