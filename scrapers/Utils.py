@@ -636,7 +636,7 @@ class Wednesday:
     def __init__(self, args, cwd):
         self.args = args
         self.WEDNESDAY = re.compile(r"wednesday")
-        self.WEDNESDAY_SEA = "s02e06"
+        self.WEDNESDAY_SEA = "s03e01"
         self.WEDNESDAY_SEA_REG = re.compile(self.WEDNESDAY_SEA)
         self.WEDNESDAY_EZ_1 = "https://eztv.re/search/wednesday"
 
