@@ -126,7 +126,7 @@ class Foundation:
     def __init__(self, args, cwd):
         self.args = args
         self.FOUNDATION = re.compile(r"foundation")
-        self.FOUNDATION_SEA = "s03e10"
+        self.FOUNDATION_SEA = "s04e01"
         self.FOUNDATION_SEA_REG = re.compile(self.FOUNDATION_SEA)
         self.FOUNDATION_EZ_1 = "https://eztv.re/search/foundation"
 
@@ -508,7 +508,7 @@ class StrangeNewWorlds:
     def __init__(self, args, cwd):
         self.args = args
         self.STRANGENEWWORLDS = re.compile(r"strange new worlds")
-        self.STRANGENEWWORLDS_SEA = "s03e10"
+        self.STRANGENEWWORLDS_SEA = "s04e01"
         self.STRANGENEWWORLDS_SEA_REG = re.compile(self.STRANGENEWWORLDS_SEA)
         self.STRANGENEWWORLDS_EZ_1 = "https://eztv.re/search/strange-new-worlds"
 
