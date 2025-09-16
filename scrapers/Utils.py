@@ -664,3 +664,35 @@ class Wednesday:
             ez_count = self.search_wednesday_ez()
             return ez_count
 
+class TonyAndZiva:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.TONIANDZIVA = re.compile(r"NCIS-Tony-and-Ziva")
+        self.TONIANDZIVA_SEA = "s01e05"
+        self.TONIANDZIVA_SEA_REG = re.compile(self.TONIANDZIVA_SEA)
+        self.TONIANDZIVA_EZ_1 = "https://eztv.re/search/ncis-tony-and-ziva"
+
+    def search_tonyandziva_ez(self):
+        try:
+            r1 = requests.get(self.TONIANDZIVA_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.TONIANDZIVA_SEA, self.TONIANDZIVA_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ NCIS-Tony-and-Ziva {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.TONIANDZIVA_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ NCIS-Tony-and-Ziva {} => status: {}".format(self.TONIANDZIVA_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("NCIS-Tony-and-Ziva unable to connect to EZTV")
+            return 0
+
+    def search_tonyandziva(self):
+        if self.args.eztv:
+            ez_count = self.search_tonyandziva_ez()
+            return ez_count
+
