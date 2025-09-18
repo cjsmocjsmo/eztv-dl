@@ -540,7 +540,7 @@ class TheLastOfUs:
     def __init__(self, args, cwd):
         self.args = args
         self.thelastofus = re.compile(r"thelastofus")
-        self.thelastofus_SEA = "s02e08"
+        self.thelastofus_SEA = "s03e01"
         self.thelastofus_SEA_REG = re.compile(self.thelastofus_SEA)
         self.thelastofus_EZ_1 = "https://eztv.re/search/the-last-of-us"
 
@@ -668,7 +668,7 @@ class TonyAndZiva:
     def __init__(self, args, cwd):
         self.args = args
         self.TONIANDZIVA = re.compile(r"NCIS-Tony-and-Ziva")
-        self.TONIANDZIVA_SEA = "s01e05"
+        self.TONIANDZIVA_SEA = "s01e06"
         self.TONIANDZIVA_SEA_REG = re.compile(self.TONIANDZIVA_SEA)
         self.TONIANDZIVA_EZ_1 = "https://eztv.re/search/ncis-tony-and-ziva"
 
