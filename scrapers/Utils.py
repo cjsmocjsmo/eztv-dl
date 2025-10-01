@@ -664,6 +664,70 @@ class Wednesday:
             ez_count = self.search_wednesday_ez()
             return ez_count
 
+class NCIS:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.NCIS = re.compile(r"ncis")
+        self.NCIS_SEA = "s22e21"
+        self.NCIS_SEA_REG = re.compile(self.NCIS_SEA)
+        self.NCIS_EZ_1 = "https://eztv.re/search/ncis"
+
+    def search_ncis_ez(self):
+        try:
+            r1 = requests.get(self.NCIS_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.NCIS_SEA, self.NCIS_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ ncis {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.NCIS_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ ncis {} => status: {}".format(self.NCIS_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("ncis unable to connect to EZTV")
+            return 0
+
+    def search_ncis(self):
+        if self.args.eztv:
+            ez_count = self.search_ncis_ez()
+            return ez_count
+
+class NCISSydney:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.NCISSYDNEY = re.compile(r"NCIS-Sydney")
+        self.NCISSYDNEY_SEA = "s03e01"
+        self.NCISSYDNEY_SEA_REG = re.compile(self.NCISSYDNEY_SEA)
+        self.NCISSYDNEY_EZ_1 = "https://eztv.re/search/ncis-sydney"
+
+    def search_ncissydney_ez(self):
+        try:
+            r1 = requests.get(self.NCISSYDNEY_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.NCISSYDNEY_SEA, self.NCISSYDNEY_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ NCIS-Sydney {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.NCISSYDNEY_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ NCIS-Sydney {} => status: {}".format(self.NCISSYDNEY_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("NCIS-Sydney unable to connect to EZTV")
+            return 0
+
+    def search_ncissydney(self):
+        if self.args.eztv:
+            ez_count = self.search_ncissydney_ez()
+            return ez_count
+
 class TonyAndZiva:
     def __init__(self, args, cwd):
         self.args = args
@@ -695,4 +759,6 @@ class TonyAndZiva:
         if self.args.eztv:
             ez_count = self.search_tonyandziva_ez()
             return ez_count
+
+
 

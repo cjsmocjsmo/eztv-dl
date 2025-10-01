@@ -104,9 +104,15 @@ class CheckForNewEpisodes:
         logger.info("Wednesday: {}".format(wednesday))
         time.sleep(5)
 
+        ncis = SHOWS.NCIS(args, cwd).search_ncis()
+        logger.info("NCIS: {}".format(ncis))
+        time.sleep(5)
+
         toni_and_ziva = SHOWS.TonyAndZiva(args, cwd).search_tonyandziva()
         logger.info("TonyAndZiva: {}".format(toni_and_ziva))
         time.sleep(5)
+
+        
 
         epi_total = [
             ahsoka,
@@ -121,7 +127,7 @@ class CheckForNewEpisodes:
             thelastofus,
             skeletoncrew,
             wednesday,
-            toni_and_ziva,
+            ncis, toni_and_ziva,
         ]
         end = time.time()
         ttime = (end - start) / 60
