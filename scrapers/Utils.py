@@ -668,7 +668,7 @@ class NCIS:
     def __init__(self, args, cwd):
         self.args = args
         self.NCIS = re.compile(r"ncis")
-        self.NCIS_SEA = "s22e21"
+        self.NCIS_SEA = "s23e02"
         self.NCIS_SEA_REG = re.compile(self.NCIS_SEA)
         self.NCIS_EZ_1 = "https://eztv.re/search/ncis"
 
@@ -700,7 +700,7 @@ class NCISSydney:
     def __init__(self, args, cwd):
         self.args = args
         self.NCISSYDNEY = re.compile(r"NCIS-Sydney")
-        self.NCISSYDNEY_SEA = "s03e01"
+        self.NCISSYDNEY_SEA = "s03e02"
         self.NCISSYDNEY_SEA_REG = re.compile(self.NCISSYDNEY_SEA)
         self.NCISSYDNEY_EZ_1 = "https://eztv.re/search/ncis-sydney"
 
@@ -726,6 +726,38 @@ class NCISSydney:
     def search_ncissydney(self):
         if self.args.eztv:
             ez_count = self.search_ncissydney_ez()
+            return ez_count
+
+class NCISOrigins:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.NCISORIGINS = re.compile(r"NCIS-Origins")
+        self.NCISORIGINS_SEA = "s02e02"
+        self.NCISORIGINS_SEA_REG = re.compile(self.NCISORIGINS_SEA)
+        self.NCISORIGINS_EZ_1 = "https://eztv.re/search/ncis-origins"
+
+    def search_ncisorigins_ez(self):
+        try:
+            r1 = requests.get(self.NCISORIGINS_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.NCISORIGINS_SEA, self.NCISORIGINS_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ NCIS-Origins {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.NCISORIGINS_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ NCIS-Origins {} => status: {}".format(self.NCISORIGINS_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("NCIS-Origins unable to connect to EZTV")
+            return 0
+
+    def search_ncisorigins(self):
+        if self.args.eztv:
+            ez_count = self.search_ncisorigins_ez()
             return ez_count
 
 class TonyAndZiva:
@@ -760,5 +792,34 @@ class TonyAndZiva:
             ez_count = self.search_tonyandziva_ez()
             return ez_count
 
+class DMV:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.DMV = re.compile(r"DMV")
+        self.DMV_SEA = "s01e02"
+        self.DMV_SEA_REG = re.compile(self.DMV_SEA)
+        self.DMV_EZ_1 = "https://eztv.re/search/dmv"
 
+    def search_dmv_ez(self):
+        try:
+            r1 = requests.get(self.DMV_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.DMV_SEA, self.DMV_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ DMV {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.DMV_SEA, r1_resp, resp1080p, resp720p))
 
+            else:
+                print("\nEZ DMV {} => status: {}".format(self.DMV_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("DMV unable to connect to EZTV")
+            return 0
+
+    def search_dmv(self):
+        if self.args.eztv:
+            ez_count = self.search_dmv_ez()
+            return ez_count

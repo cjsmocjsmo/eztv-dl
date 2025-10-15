@@ -108,26 +108,37 @@ class CheckForNewEpisodes:
         logger.info("NCIS: {}".format(ncis))
         time.sleep(5)
 
+        ncissydney = SHOWS.NCISSydney(args, cwd).search_ncissydney()
+        logger.info("NCISSydney: {}".format(ncissydney))
+        time.sleep(5)
+
+        ncisorigins = SHOWS.NCISOrigins(args, cwd).search_ncisorigins()
+        logger.info("NCISOrigins: {}".format(ncisorigins))
+        time.sleep(5)
+
         toni_and_ziva = SHOWS.TonyAndZiva(args, cwd).search_tonyandziva()
         logger.info("TonyAndZiva: {}".format(toni_and_ziva))
+        time.sleep(5)
+
+        dmv = SHOWS.DMV(args, cwd).search_dmv()
+        logger.info("DMV: {}".format(dmv))
         time.sleep(5)
 
         
 
         epi_total = [
             ahsoka,
+            dmv,
             fallout, forallmankind, foundation, fubar,
             houseofthedragon,
             ironheart,
-            mobland, mandalorian, monarch, 
+            mobland, mandalorian, monarch,
+            ncis, ncisorigins, ncissydney,
             obiwankenobi, orville, 
             prehistoricplanet,
-            shogun, silo,
-            starwarsvisions, strangenewworlds,  
-            thelastofus,
-            skeletoncrew,
+            shogun, silo, starwarsvisions, strangenewworlds, skeletoncrew,
+            thelastofus, toni_and_ziva,
             wednesday,
-            ncis, toni_and_ziva,
         ]
         end = time.time()
         ttime = (end - start) / 60
