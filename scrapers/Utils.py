@@ -764,7 +764,7 @@ class TonyAndZiva:
     def __init__(self, args, cwd):
         self.args = args
         self.TONIANDZIVA = re.compile(r"NCIS-Tony-and-Ziva")
-        self.TONIANDZIVA_SEA = "s01e07"
+        self.TONIANDZIVA_SEA = "s01e09"
         self.TONIANDZIVA_SEA_REG = re.compile(self.TONIANDZIVA_SEA)
         self.TONIANDZIVA_EZ_1 = "https://eztv.re/search/ncis-tony-and-ziva"
 
