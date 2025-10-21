@@ -700,7 +700,7 @@ class NCISSydney:
     def __init__(self, args, cwd):
         self.args = args
         self.NCISSYDNEY = re.compile(r"NCIS-Sydney")
-        self.NCISSYDNEY_SEA = "s03e02"
+        self.NCISSYDNEY_SEA = "s03e03"
         self.NCISSYDNEY_SEA_REG = re.compile(self.NCISSYDNEY_SEA)
         self.NCISSYDNEY_EZ_1 = "https://eztv.re/search/ncis-sydney"
 
