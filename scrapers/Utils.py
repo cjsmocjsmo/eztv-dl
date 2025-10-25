@@ -668,7 +668,7 @@ class NCIS:
     def __init__(self, args, cwd):
         self.args = args
         self.NCIS = re.compile(r"ncis")
-        self.NCIS_SEA = "s23e02"
+        self.NCIS_SEA = "s23e03"
         self.NCIS_SEA_REG = re.compile(self.NCIS_SEA)
         self.NCIS_EZ_1 = "https://eztv.re/search/ncis"
 
@@ -732,7 +732,7 @@ class NCISOrigins:
     def __init__(self, args, cwd):
         self.args = args
         self.NCISORIGINS = re.compile(r"NCIS-Origins")
-        self.NCISORIGINS_SEA = "s02e02"
+        self.NCISORIGINS_SEA = "s02e03"
         self.NCISORIGINS_SEA_REG = re.compile(self.NCISORIGINS_SEA)
         self.NCISORIGINS_EZ_1 = "https://eztv.re/search/ncis-origins"
 
@@ -764,7 +764,7 @@ class TonyAndZiva:
     def __init__(self, args, cwd):
         self.args = args
         self.TONIANDZIVA = re.compile(r"NCIS-Tony-and-Ziva")
-        self.TONIANDZIVA_SEA = "s01e10"
+        self.TONIANDZIVA_SEA = "s01e11"
         self.TONIANDZIVA_SEA_REG = re.compile(self.TONIANDZIVA_SEA)
         self.TONIANDZIVA_EZ_1 = "https://eztv.re/search/ncis-tony-and-ziva"
 
@@ -796,7 +796,7 @@ class DMV:
     def __init__(self, args, cwd):
         self.args = args
         self.DMV = re.compile(r"DMV")
-        self.DMV_SEA = "s01e02"
+        self.DMV_SEA = "s01e03"
         self.DMV_SEA_REG = re.compile(self.DMV_SEA)
         self.DMV_EZ_1 = "https://eztv.re/search/dmv"
 
