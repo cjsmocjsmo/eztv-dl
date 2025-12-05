@@ -351,7 +351,7 @@ class PrehistoricPlanet:
     def __init__(self, args, cwd):
         self.args = args
         self.PREHISTORICPLANET = re.compile(r"prehistoric planet")
-        self.PREHISTORICPLANET_SEA = "s03e01"
+        self.PREHISTORICPLANET_SEA = "s04e01"
         self.PREHISTORICPLANET_SEA_REG = re.compile(self.PREHISTORICPLANET_SEA)
         self.PREHISTORICPLANET_EZ_1 = "https://eztv.re/search/prehistoric-planet"
 
@@ -476,7 +476,7 @@ class StarWarsVisions:
     def __init__(self, args, cwd):
         self.args = args
         self.STARWARSVISIONS = re.compile(r"star wars visions")
-        self.STARWARSVISIONS_SEA = "s03e01"
+        self.STARWARSVISIONS_SEA = "s04e01"
         self.STARWARSVISIONS_SEA_REG = re.compile(self.STARWARSVISIONS_SEA)
         self.STARWARSVISIONS_EZ_1 = "https://eztv.re/search/star-wars-visions"
 
@@ -668,7 +668,7 @@ class NCIS:
     def __init__(self, args, cwd):
         self.args = args
         self.NCIS = re.compile(r"ncis")
-        self.NCIS_SEA = "s23e04"
+        self.NCIS_SEA = "s23e08"
         self.NCIS_SEA_REG = re.compile(self.NCIS_SEA)
         self.NCIS_EZ_1 = "https://eztv.re/search/ncis"
 
@@ -700,7 +700,7 @@ class NCISSydney:
     def __init__(self, args, cwd):
         self.args = args
         self.NCISSYDNEY = re.compile(r"NCIS-Sydney")
-        self.NCISSYDNEY_SEA = "s03e04"
+        self.NCISSYDNEY_SEA = "s03e08"
         self.NCISSYDNEY_SEA_REG = re.compile(self.NCISSYDNEY_SEA)
         self.NCISSYDNEY_EZ_1 = "https://eztv.re/search/ncis-sydney"
 
@@ -732,7 +732,7 @@ class NCISOrigins:
     def __init__(self, args, cwd):
         self.args = args
         self.NCISORIGINS = re.compile(r"NCIS-Origins")
-        self.NCISORIGINS_SEA = "s02e04"
+        self.NCISORIGINS_SEA = "s02e08"
         self.NCISORIGINS_SEA_REG = re.compile(self.NCISORIGINS_SEA)
         self.NCISORIGINS_EZ_1 = "https://eztv.re/search/ncis-origins"
 
@@ -764,7 +764,7 @@ class TonyAndZiva:
     def __init__(self, args, cwd):
         self.args = args
         self.TONIANDZIVA = re.compile(r"NCIS-Tony-and-Ziva")
-        self.TONIANDZIVA_SEA = "s01e11"
+        self.TONIANDZIVA_SEA = "s02e01"
         self.TONIANDZIVA_SEA_REG = re.compile(self.TONIANDZIVA_SEA)
         self.TONIANDZIVA_EZ_1 = "https://eztv.re/search/ncis-tony-and-ziva"
 
@@ -796,7 +796,7 @@ class DMV:
     def __init__(self, args, cwd):
         self.args = args
         self.DMV = re.compile(r"DMV")
-        self.DMV_SEA = "s01e04"
+        self.DMV_SEA = "s01e09"
         self.DMV_SEA_REG = re.compile(self.DMV_SEA)
         self.DMV_EZ_1 = "https://eztv.re/search/dmv"
 
