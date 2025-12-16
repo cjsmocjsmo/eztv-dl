@@ -124,6 +124,10 @@ class CheckForNewEpisodes:
         logger.info("DMV: {}".format(dmv))
         time.sleep(5)
 
+        percyjacksonandtheolympians = SHOWS.PercyJacksonAndTheOlympians(args, cwd).search_percyjacksonandtheolympians()
+        logger.info("PercyJacksonAndTheOlympians: {}".format(percyjacksonandtheolympians))
+        time.sleep(5)
+
         
 
         epi_total = [
@@ -135,7 +139,7 @@ class CheckForNewEpisodes:
             mobland, mandalorian, monarch,
             ncis, ncisorigins, ncissydney,
             obiwankenobi, orville, 
-            prehistoricplanet,
+            percyjacksonandtheolympians, prehistoricplanet,
             shogun, silo, starwarsvisions, strangenewworlds, skeletoncrew,
             thelastofus, toni_and_ziva,
             wednesday,
