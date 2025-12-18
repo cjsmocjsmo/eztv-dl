@@ -62,7 +62,7 @@ class Fallout:
     def __init__(self, args, cwd):
         self.args = args
         self.fallout = re.compile(r"fallout")
-        self.fallout_SEA = "s02e01"
+        self.fallout_SEA = "s02e02"
         self.fallout_SEA_REG = re.compile(self.fallout_SEA)
         self.fallout_EZ_1 = "https://eztv.re/search/fallout"
 
@@ -668,7 +668,7 @@ class NCIS:
     def __init__(self, args, cwd):
         self.args = args
         self.NCIS = re.compile(r"ncis")
-        self.NCIS_SEA = "s23e09"
+        self.NCIS_SEA = "s23e10"
         self.NCIS_SEA_REG = re.compile(self.NCIS_SEA)
         self.NCIS_EZ_1 = "https://eztv.re/search/ncis"
 
@@ -829,7 +829,7 @@ class PercyJacksonAndTheOlympians:
     def __init__(self, args, cwd):
         self.args = args
         self.PERCYJACKSONANDTHEOLYMPIANS = re.compile(r"PercyJacksonAndTheOlympians")
-        self.PERCYJACKSONANDTHEOLYMPIANS_SEA = "s02e03"
+        self.PERCYJACKSONANDTHEOLYMPIANS_SEA = "s02e04"
         self.PERCYJACKSONANDTHEOLYMPIANS_SEA_REG = re.compile(self.PERCYJACKSONANDTHEOLYMPIANS_SEA)
         self.PERCYJACKSONANDTHEOLYMPIANS_EZ_1 = "https://eztv.re/search/percy-jackson-and-the-olympians"
 
