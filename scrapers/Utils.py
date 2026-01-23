@@ -829,7 +829,7 @@ class PercyJacksonAndTheOlympians:
     def __init__(self, args, cwd):
         self.args = args
         self.PERCYJACKSONANDTHEOLYMPIANS = re.compile(r"PercyJacksonAndTheOlympians")
-        self.PERCYJACKSONANDTHEOLYMPIANS_SEA = "s02e08"
+        self.PERCYJACKSONANDTHEOLYMPIANS_SEA = "s02e09"
         self.PERCYJACKSONANDTHEOLYMPIANS_SEA_REG = re.compile(self.PERCYJACKSONANDTHEOLYMPIANS_SEA)
         self.PERCYJACKSONANDTHEOLYMPIANS_EZ_1 = "https://eztv.re/search/percy-jackson-and-the-olympians"
 
