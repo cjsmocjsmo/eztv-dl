@@ -62,7 +62,7 @@ class Fallout:
     def __init__(self, args, cwd):
         self.args = args
         self.fallout = re.compile(r"fallout")
-        self.fallout_SEA = "s02e06"
+        self.fallout_SEA = "s02e07"
         self.fallout_SEA_REG = re.compile(self.fallout_SEA)
         self.fallout_EZ_1 = "https://eztv.re/search/fallout"
 
