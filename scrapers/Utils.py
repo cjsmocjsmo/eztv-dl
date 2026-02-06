@@ -62,7 +62,7 @@ class Fallout:
     def __init__(self, args, cwd):
         self.args = args
         self.fallout = re.compile(r"fallout")
-        self.fallout_SEA = "s02e07"
+        self.fallout_SEA = "s02e09"
         self.fallout_SEA_REG = re.compile(self.fallout_SEA)
         self.fallout_EZ_1 = "https://eztv.re/search/fallout"
 
@@ -668,7 +668,7 @@ class NCIS:
     def __init__(self, args, cwd):
         self.args = args
         self.NCIS = re.compile(r"ncis")
-        self.NCIS_SEA = "s23e10"
+        self.NCIS_SEA = "s24e01"
         self.NCIS_SEA_REG = re.compile(self.NCIS_SEA)
         self.NCIS_EZ_1 = "https://eztv.re/search/ncis"
 
@@ -700,7 +700,7 @@ class NCISSydney:
     def __init__(self, args, cwd):
         self.args = args
         self.NCISSYDNEY = re.compile(r"NCIS-Sydney")
-        self.NCISSYDNEY_SEA = "s03e09"
+        self.NCISSYDNEY_SEA = "s04e01"
         self.NCISSYDNEY_SEA_REG = re.compile(self.NCISSYDNEY_SEA)
         self.NCISSYDNEY_EZ_1 = "https://eztv.re/search/ncis-sydney"
 
@@ -732,7 +732,7 @@ class NCISOrigins:
     def __init__(self, args, cwd):
         self.args = args
         self.NCISORIGINS = re.compile(r"NCIS-Origins")
-        self.NCISORIGINS_SEA = "s02e09"
+        self.NCISORIGINS_SEA = "s03e01"
         self.NCISORIGINS_SEA_REG = re.compile(self.NCISORIGINS_SEA)
         self.NCISORIGINS_EZ_1 = "https://eztv.re/search/ncis-origins"
 
@@ -856,3 +856,68 @@ class PercyJacksonAndTheOlympians:
         if self.args.eztv:
             ez_count = self.search_percyjacksonandtheolympians_ez()
             return ez_count
+
+class StarfleetAcademy:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.STARFLEETACADEMY = re.compile(r"StarfleetAcademy")
+        self.STARFLEETACADEMY_SEA = "s01e06"
+        self.STARFLEETACADEMY_SEA_REG = re.compile(self.STARFLEETACADEMY_SEA)
+        self.STARFLEETACADEMY_EZ_1 = "https://eztv.re/search/starfleet-academy"
+
+    def search_starfleetacademy_ez(self):
+        try:
+            r1 = requests.get(self.STARFLEETACADEMY_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.STARFLEETACADEMY_SEA, self.STARFLEETACADEMY_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ StarfleetAcademy {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.STARFLEETACADEMY_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ StarfleetAcademy {} => status: {}".format(self.STARFLEETACADEMY_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("StarfleetAcademy unable to connect to EZTV")
+            return 0
+
+    def search_starfleetacademy(self):
+        if self.args.eztv:
+            ez_count = self.search_starfleetacademy_ez()
+            return ez_count
+
+class WonderMan:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.WONDERMAN = re.compile(r"WonderMan")
+        self.WONDERMAN_SEA = "s02e01"
+        self.WONDERMAN_SEA_REG = re.compile(self.WONDERMAN_SEA)
+        self.WONDERMAN_EZ_1 = "https://eztv.re/search/wonder-man"
+
+    def search_wonderman_ez(self):
+        try:
+            r1 = requests.get(self.WONDERMAN_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.WONDERMAN_SEA, self.WONDERMAN_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ WonderMan {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.WONDERMAN_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ WonderMan {} => status: {}".format(self.WONDERMAN_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("WonderMan unable to connect to EZTV")
+            return 0
+
+    def search_wonderman(self):
+        if self.args.eztv:
+            ez_count = self.search_wonderman_ez()
+            return ez_count
+

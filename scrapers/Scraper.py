@@ -128,6 +128,14 @@ class CheckForNewEpisodes:
         logger.info("PercyJacksonAndTheOlympians: {}".format(percyjacksonandtheolympians))
         time.sleep(5)
 
+        starfleetacademy = SHOWS.StarfleetAcademy(args, cwd).search_starfleetacademy()
+        logger.info("StarfleetAcademy: {}".format(starfleetacademy))
+        time.sleep(5)
+
+        wonderman = SHOWS.WonderMan(args, cwd).search_wonderman()
+        logger.info("WonderMan: {}".format(wonderman))
+        time.sleep(5)
+
         
 
         epi_total = [
@@ -140,9 +148,9 @@ class CheckForNewEpisodes:
             ncis, ncisorigins, ncissydney,
             obiwankenobi, orville, 
             percyjacksonandtheolympians, prehistoricplanet,
-            shogun, silo, starwarsvisions, strangenewworlds, skeletoncrew,
+            shogun, silo, starfleetacademy, starwarsvisions, strangenewworlds, skeletoncrew,
             thelastofus, toni_and_ziva,
-            wednesday,
+            wednesday, wonderman,
         ]
         end = time.time()
         ttime = (end - start) / 60
