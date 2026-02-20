@@ -861,7 +861,7 @@ class StarfleetAcademy:
     def __init__(self, args, cwd):
         self.args = args
         self.STARFLEETACADEMY = re.compile(r"StarfleetAcademy")
-        self.STARFLEETACADEMY_SEA = "s01e06"
+        self.STARFLEETACADEMY_SEA = "s01e08"
         self.STARFLEETACADEMY_SEA_REG = re.compile(self.STARFLEETACADEMY_SEA)
         self.STARFLEETACADEMY_EZ_1 = "https://eztv.re/search/starfleet-academy"
 
@@ -919,5 +919,37 @@ class WonderMan:
     def search_wonderman(self):
         if self.args.eztv:
             ez_count = self.search_wonderman_ez()
+            return ez_count
+
+class DarkWinds:
+    def __init__(self, args, cwd):
+        self.args = args
+        self.DARKWINDS = re.compile(r"DarkWinds")
+        self.DARKWINDS_SEA = "s04e02"
+        self.DARKWINDS_SEA_REG = re.compile(self.DARKWINDS_SEA)
+        self.DARKWINDS_EZ_1 = "https://eztv.re/search/dark-winds"
+
+    def search_darkwinds_ez(self):
+        try:
+            r1 = requests.get(self.DARKWINDS_EZ_1)
+            r1_resp = r1.status_code
+            count = 0
+            if r1_resp == 200:
+                p1_list = Search().ez_search_for_new_episode(r1.text, self.DARKWINDS_SEA, self.DARKWINDS_SEA_REG)
+                resp1080p = len(p1_list[0])
+                resp720p = len(p1_list[1])
+                count += resp1080p + resp720p
+                print("\nEZ DarkWinds {} => \n\tstatus: {}, \n\t1080p: {}\n\t720p: {}".format(self.DARKWINDS_SEA, r1_resp, resp1080p, resp720p))
+
+            else:
+                print("\nEZ DarkWinds {} => status: {}".format(self.DARKWINDS_SEA, r1_resp))
+            return count
+        except requests.exceptions.ConnectionError:
+            print("DarkWinds unable to connect to EZTV")
+            return 0
+
+    def search_darkwinds(self):
+        if self.args.eztv:
+            ez_count = self.search_darkwinds_ez()
             return ez_count
 

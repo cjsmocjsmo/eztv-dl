@@ -136,11 +136,15 @@ class CheckForNewEpisodes:
         logger.info("WonderMan: {}".format(wonderman))
         time.sleep(5)
 
+        darkwinds = SHOWS.DarkWinds(args, cwd).search_darkwinds()
+        logger.info("DarkWinds: {}".format(darkwinds))
+        time.sleep(5)
+
         
 
         epi_total = [
             ahsoka,
-            dmv,
+            darkwinds, dmv,
             fallout, forallmankind, foundation, fubar,
             houseofthedragon,
             ironheart,
