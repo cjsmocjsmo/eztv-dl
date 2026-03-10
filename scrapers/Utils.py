@@ -254,7 +254,7 @@ class MonarchLegacyOfMonsters:
     def __init__(self, args, cwd):
         self.args = args
         self.MONARCHLEGACYOFMONSTERS = re.compile(r"monarch legacy of monsters")
-        self.MONARCHLEGACYOFMONSTERS_SEA = "s02e01"
+        self.MONARCHLEGACYOFMONSTERS_SEA = "s02e03"
         self.MONARCHLEGACYOFMONSTERS_SEA_REG = re.compile(self.MONARCHLEGACYOFMONSTERS_SEA)
         self.MONARCHLEGACYOFMONSTERS_EZ_1 = "https://eztv.re/search/monarch-legacy-of-monsters"
 
@@ -796,7 +796,7 @@ class DMV:
     def __init__(self, args, cwd):
         self.args = args
         self.DMV = re.compile(r"DMV")
-        self.DMV_SEA = "s01e10"
+        self.DMV_SEA = "s02e01"
         self.DMV_SEA_REG = re.compile(self.DMV_SEA)
         self.DMV_EZ_1 = "https://eztv.re/search/dmv"
 
@@ -861,7 +861,7 @@ class StarfleetAcademy:
     def __init__(self, args, cwd):
         self.args = args
         self.STARFLEETACADEMY = re.compile(r"StarfleetAcademy")
-        self.STARFLEETACADEMY_SEA = "s01e08"
+        self.STARFLEETACADEMY_SEA = "s01e10"
         self.STARFLEETACADEMY_SEA_REG = re.compile(self.STARFLEETACADEMY_SEA)
         self.STARFLEETACADEMY_EZ_1 = "https://eztv.re/search/starfleet-academy"
 
@@ -925,7 +925,7 @@ class DarkWinds:
     def __init__(self, args, cwd):
         self.args = args
         self.DARKWINDS = re.compile(r"DarkWinds")
-        self.DARKWINDS_SEA = "s04e02"
+        self.DARKWINDS_SEA = "s04e05"
         self.DARKWINDS_SEA_REG = re.compile(self.DARKWINDS_SEA)
         self.DARKWINDS_EZ_1 = "https://eztv.re/search/dark-winds"
 
